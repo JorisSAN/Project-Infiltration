@@ -2,65 +2,68 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillTreeSnapshot : MonoBehaviour
+namespace skilltree
 {
-	private SaveSkillTree _snapshot;
-	private SkillMenu _menu;
-
-	void Awake()
+	public class SkillTreeSnapshot : MonoBehaviour
 	{
-		_menu = GetComponent<SkillMenu>();
-		//LoadSnapshotFromDataBase();
-	}
+		private SaveSkillTree _snapshot;
+		private SkillMenu _menu;
 
-	public void SaveSnapshot()
-	{
-		_snapshot = _menu._skillTree.GetSnapshot();
-		SaveSnapshotToDataBase();
-	}
-
-	public void LoadSnapshot()
-	{
-		if (_snapshot != null)
+		void Awake()
 		{
-			_menu._skillTree.LoadSnapshot(_snapshot);
-			SkillCategory[] categories = _menu._skillTree.GetCategories();
-			_menu.ShowCategory(categories[0]);
+			_menu = GetComponent<SkillMenu>();
+			//LoadSnapshotFromDataBase();
 		}
-	}
 
-
-	/* SAVE SYSTEM TEMPORAIRE */
-
-	public void SaveSnapshotToDataBase()
-	{
-		// NOT IMPLEMENTED YET
-	}
-
-	public void LoadSnapshotFromDataBase()
-	{
-		// NOT IMPLEMENTED YET
-		LoadSnapshot();
-	}
-	/*
-	protected override T Deserialize<T>(string dataToDeserialize)
-	{
-		T savedObject;
-		try
+		public void SaveSnapshot()
 		{
-			savedObject = JsonConvert.DeserializeObject<T>(dataToDeserialize);
+			_snapshot = _menu._skillTree.GetSnapshot();
+			SaveSnapshotToDataBase();
 		}
-		catch (Exception exception)
-		{
-			throw new SavedDataLoadException($"The {_saveName} save file isn't of type {typeof(T)}.\n{exception.ToString()}");
-		}
-		return savedObject;
-	}
 
-	protected override string Serialize<T>(T dataToSerialize)
-	{
-		return JsonConvert.SerializeObject(dataToSerialize);
+		public void LoadSnapshot()
+		{
+			if (_snapshot != null)
+			{
+				_menu._skillTree.LoadSnapshot(_snapshot);
+				SkillCategory[] categories = _menu._skillTree.GetCategories();
+				_menu.ShowCategory(categories[0]);
+			}
+		}
+
+
+		/* SAVE SYSTEM TEMPORAIRE */
+
+		public void SaveSnapshotToDataBase()
+		{
+			// NOT IMPLEMENTED YET
+		}
+
+		public void LoadSnapshotFromDataBase()
+		{
+			// NOT IMPLEMENTED YET
+			LoadSnapshot();
+		}
+		/*
+		protected override T Deserialize<T>(string dataToDeserialize)
+		{
+			T savedObject;
+			try
+			{
+				savedObject = JsonConvert.DeserializeObject<T>(dataToDeserialize);
+			}
+			catch (Exception exception)
+			{
+				throw new SavedDataLoadException($"The {_saveName} save file isn't of type {typeof(T)}.\n{exception.ToString()}");
+			}
+			return savedObject;
+		}
+
+		protected override string Serialize<T>(T dataToSerialize)
+		{
+			return JsonConvert.SerializeObject(dataToSerialize);
+		}
+		*/
+		/* SAVE SYSTEM TEMPORAIRE */
 	}
-	*/
-	/* SAVE SYSTEM TEMPORAIRE */
 }

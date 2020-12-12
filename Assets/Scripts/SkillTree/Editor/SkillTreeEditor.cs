@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(SkillTree), true)]
-public class SkillTreeEditor : Editor
+namespace skilltree
 {
-	private EditorWindow _window;
-
-	public override void OnInspectorGUI()
+	[CustomEditor(typeof(SkillTree), true)]
+	public class SkillTreeEditor : Editor
 	{
-		DrawDefaultInspector();
+		private EditorWindow _window;
 
-		if (GUILayout.Button("Edit Skill Tree"))
+		public override void OnInspectorGUI()
 		{
-			_window = EditorWindow.GetWindow<GraphController>();
-			_window.Show();
-		}
+			DrawDefaultInspector();
 
-		// Set dirty to save changes
-		if (GUI.changed) EditorUtility.SetDirty(target);
+			if (GUILayout.Button("Edit Skill Tree"))
+			{
+				_window = EditorWindow.GetWindow<GraphController>();
+				_window.Show();
+			}
+
+			// Set dirty to save changes
+			if (GUI.changed) EditorUtility.SetDirty(target);
+		}
 	}
 }

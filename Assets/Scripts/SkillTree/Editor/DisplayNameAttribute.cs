@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisplayNameAttribute : PropertyAttribute
+namespace skilltree
 {
-	public readonly string _defaultName;
-
-	public DisplayNameAttribute(string defaultName)
+	public class DisplayNameAttribute : PropertyAttribute
 	{
-		this._defaultName = defaultName;
+		public readonly string _defaultName;
+
+		public DisplayNameAttribute(string defaultName)
+		{
+			this._defaultName = defaultName;
+		}
 	}
 }

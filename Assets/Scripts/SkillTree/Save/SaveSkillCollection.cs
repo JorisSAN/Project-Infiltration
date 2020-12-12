@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveSkillCollection
+namespace skilltree
 {
-    public string _uuid;
-    public int _skillIndex;
+    public class SaveSkillCollection
+    {
+        public string _uuid;
+        public int _skillIndex;
+    }
 }

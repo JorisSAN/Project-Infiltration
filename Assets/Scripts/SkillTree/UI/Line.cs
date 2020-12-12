@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Line : MonoBehaviour
+namespace skilltree
 {
-    [SerializeField] private RectTransform _rectTransform = default;
-    [SerializeField] private Image _image = default;
-
-    public RectTransform RectTransform
+    public class Line : MonoBehaviour
     {
-        get
+        [SerializeField] private RectTransform _rectTransform = default;
+        [SerializeField] private Image _image = default;
+
+        public RectTransform RectTransform
         {
-            return _rectTransform;
+            get
+            {
+                return _rectTransform;
+            }
         }
-    }
 
-    public void ChangeImageColor(Color color)
-    {
-        _image.color = color;
+        public void ChangeImageColor(Color color)
+        {
+            _image.color = color;
+        }
     }
 }

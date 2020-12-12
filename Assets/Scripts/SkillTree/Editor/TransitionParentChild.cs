@@ -2,35 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Used to represent a parent to child relationship for transitions in a single class
-/// </summary>
-public class TransitionParentChild
+namespace skilltree
 {
-	private SkillCollection _parent;
-	private SkillCollection _child;
-
-	public SkillCollection Parent
+    /// <summary>
+    /// Used to represent a parent to child relationship for transitions in a single class
+    /// </summary>
+    public class TransitionParentChild
     {
-		get
-        {
-            return _parent;
-        }
-        set
-        {
-            _parent = value;
-        }
-    }
+        private SkillCollection _parent;
+        private SkillCollection _child;
 
-    public SkillCollection Child
-    {
-        get
+        public SkillCollection Parent
         {
-            return _child;
+            get
+            {
+                return _parent;
+            }
+            set
+            {
+                _parent = value;
+            }
         }
-        set
+
+        public SkillCollection Child
         {
-            _child = value;
+            get
+            {
+                return _child;
+            }
+            set
+            {
+                _child = value;
+            }
         }
     }
 }

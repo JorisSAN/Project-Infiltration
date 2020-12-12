@@ -2,45 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillCollectionGridItem
+namespace skilltree
 {
-	private SkillCollection _collection;
-	private int _x;
-	private int _y;
-
-	public SkillCollection Collection
+    public class SkillCollectionGridItem
     {
-		get
-        {
-			return _collection;
-        }
-		set
-        {
-			_collection = value;
-        }
-    }
+        private SkillCollection _collection;
+        private int _x;
+        private int _y;
 
-	public int X
-    {
-		get
+        public SkillCollection Collection
         {
-            return _x;
+            get
+            {
+                return _collection;
+            }
+            set
+            {
+                _collection = value;
+            }
         }
-        set
-        {
-            _x = value;
-        }
-    }
 
-    public int Y
-    {
-        get
+        public int X
         {
-            return _y;
+            get
+            {
+                return _x;
+            }
+            set
+            {
+                _x = value;
+            }
         }
-        set
+
+        public int Y
         {
-            _y = value;
+            get
+            {
+                return _y;
+            }
+            set
+            {
+                _y = value;
+            }
         }
     }
 }

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum NodeStatus
+namespace skilltree
 {
-	Locked,
-	Purchasable,
-	Unlocked
+	public enum NodeStatus
+	{
+		Locked,
+		Purchasable,
+		Unlocked
+	}
 }

@@ -4,29 +4,32 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class ButtonSkillCategory : MonoBehaviour
+namespace skilltree
 {
-    [SerializeField] private Button _button = default;
-    [SerializeField] private Text _content = default;
-
-    // METHODS
-
-    /// <summary>
-    /// Change the content of the button
-    /// </summary>
-    /// <param name="nexContent"></param>
-    public void ChangeContent(string nexContent)
+    public class ButtonSkillCategory : MonoBehaviour
     {
-        _content.text = nexContent;
-    }
+        [SerializeField] private Button _button = default;
+        [SerializeField] private Text _content = default;
 
-    public void RemoveAllListeners()
-    {
-        _button.onClick.RemoveAllListeners();
-    }
+        // METHODS
 
-    public void AddListener(UnityAction action)
-    {
-        _button.onClick.AddListener(action);
+        /// <summary>
+        /// Change the content of the button
+        /// </summary>
+        /// <param name="nexContent"></param>
+        public void ChangeContent(string nexContent)
+        {
+            _content.text = nexContent;
+        }
+
+        public void RemoveAllListeners()
+        {
+            _button.onClick.RemoveAllListeners();
+        }
+
+        public void AddListener(UnityAction action)
+        {
+            _button.onClick.AddListener(action);
+        }
     }
 }

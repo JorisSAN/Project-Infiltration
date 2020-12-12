@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveSkillTree
+namespace skilltree
 {
-	public int _skillPoints;
-	public List<SaveSkill> _skills;
-	public List<SaveSkillCategory> _categories;
-	public List<SaveSkillCollection> _collections;
+	public class SaveSkillTree
+	{
+		public int _skillPoints;
+		public List<SaveSkill> _skills;
+		public List<SaveSkillCategory> _categories;
+		public List<SaveSkillCollection> _collections;
+	}
 }
