@@ -31,5 +31,12 @@ namespace skilltree
         {
             _button.onClick.AddListener(action);
         }
+
+        public void ResetPosition()
+        {
+            float actualLocalX = gameObject.transform.localPosition.x;
+            float actualLocalY = gameObject.transform.localPosition.y;
+            gameObject.transform.localPosition = new Vector3(actualLocalX, actualLocalY, 0);
+        }
     }
 }

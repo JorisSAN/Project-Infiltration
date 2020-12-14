@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doorAnimation: {fileID: 6162863156198256239}
-  _levelNumber: 0
+  _sceneIndex: 0
+  _loadLevelAsync: 0
 --- !u!1 &2149017617516027987
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelDoor: {fileID: 8536513976385556205}
+  _levelLoader: {fileID: 0}
 --- !u!1001 &928623481908038035
 PrefabInstance:
   m_ObjectHideFlags: 0

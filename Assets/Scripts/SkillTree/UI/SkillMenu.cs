@@ -58,6 +58,7 @@ namespace skilltree
 				buttonSkillCat.transform.SetParent(_categoryContainer);
 				buttonSkillCat.transform.localScale = Vector3.one;
 
+				//buttonSkillCat.ResetPosition();
 				buttonSkillCat.ChangeContent(category.displayName);
 
 				// Dump in a tmp variable to force capture the variable by the event
@@ -117,6 +118,7 @@ namespace skilltree
 				SkillNode node = Instantiate<SkillNode>(_nodePrefab);
 				node.transform.SetParent(_nodeContainer);
 				node.transform.localScale = Vector3.one;
+				//node.ResetPosition();
 				node.ChangeContent(gridItem.Collection.displayName);
 				node.ChangeRectTransformAnchoredPosition(new Vector2((gridItem.X * cellSize.x) + cellPadding.x, (gridItem.Y * cellSize.y * -1f) - cellPadding.y));
 
@@ -166,10 +168,9 @@ namespace skilltree
 
 		private void DrawLine(Transform container, Vector3 start, Vector3 end, Color color)
 		{
-			Debug.Log("DRAW LINE");
-
 			Line line = Instantiate<Line>(_linePrefab);
 			line.ChangeImageColor(color);
+			//line.ResetPosition();
 
 			// Adjust the layering so it appears underneath
 			line.transform.SetParent(container);
