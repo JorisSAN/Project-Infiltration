@@ -2,15 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using utils.noNull;
 
 namespace hud
 {
     public class Hud : MonoBehaviour
     {
-        [SerializeField] private Player _player = default;
-        [SerializeField] private HealthBar _healthBar = default;
-        [SerializeField] private MoneyContainer _moneyContainer = default;
-        [SerializeField] private DiscretionBar _discretionBar = default;
+        [SerializeField, NoNull] private Player _player = default;
+        [SerializeField, NoNull] private HealthBar _healthBar = default;
+        [SerializeField, NoNull] private MoneyContainer _moneyContainer = default;
+        [SerializeField, NoNull] private DiscretionBar _discretionBar = default;
 
         // METHODS
         public void Awake()

@@ -3,6 +3,7 @@ using player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using utils.noNull;
 
 namespace game.rewards
 {
@@ -14,8 +15,8 @@ namespace game.rewards
 
         [SerializeField] private Animator _chestAnimation = default;
 
-        [SerializeField] private Player _player = default; // TO CHANGE WHEN IMPLEMENT GAMEFLOW
-        [SerializeField] private Hud _hud = default; // TO CHANGE WHEN IMPLEMENT GAMEFLOW
+        [SerializeField, NoNull] private Player _player = default; // TO CHANGE WHEN IMPLEMENT GAMEFLOW
+        [SerializeField, NoNull] private Hud _hud = default; // TO CHANGE WHEN IMPLEMENT GAMEFLOW
 
         public void Awake()
         {
