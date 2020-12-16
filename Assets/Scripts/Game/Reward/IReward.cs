@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IReward
+namespace game.rewards
 {
-    
+    public interface IReward
+    {
+
+    }
 }
