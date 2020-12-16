@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _healthBar: {fileID: 4605578814510286904}
-  _money: {fileID: 4605578814829320968}
+  _moneyContainer: {fileID: 4605578814829320968}
   _discretionBar: {fileID: 4605578814011611711}
 --- !u!1 &4605578813734109002
 GameObject:
@@ -354,7 +354,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4605578813963423926}
   - component: {fileID: 4605578813963423924}
-  - component: {fileID: 4605578813963423927}
+  - component: {fileID: 4402591377392489257}
+  - component: {fileID: 5325512020495703873}
   m_Layer: 5
   m_Name: Amount
   m_TagString: Untagged
@@ -389,7 +390,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4605578813963423929}
   m_CullTransparentMesh: 0
---- !u!114 &4605578813963423927
+--- !u!23 &4402591377392489257
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4605578813963423929}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!114 &5325512020495703873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -883,8 +923,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b097a2f868378db4f9fdaedfce2e39aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _amount: {fileID: 4605578813963423927}
+  _amount: {fileID: 5325512020495703873}
   _icon: {fileID: 4605578813737611636}
+  _beginFontSize: 36
+  _bigAnimatedFont: 60
 --- !u!1 &4605578815049448250
 GameObject:
   m_ObjectHideFlags: 0
