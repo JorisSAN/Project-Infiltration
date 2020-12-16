@@ -6,14 +6,14 @@ namespace player
 {
     public class PlayerHealth
     {
-        private int _healthMax;
+        public int MaxHealth { get; private set; }
         public int Health { get; private set; }
 
         // METHODS
         public void Initialize()
         {
-            _healthMax = 100;
-            Health = _healthMax;
+            MaxHealth = 100;
+            Health = MaxHealth;
         }
 
         public bool IsDead()
@@ -24,9 +24,9 @@ namespace player
         public void AddHealth(int healthToAdd)
         {
             Health += healthToAdd;
-            if (Health > _healthMax)
+            if (Health > MaxHealth)
             {
-                Health = _healthMax;
+                Health = MaxHealth;
             }
         }
 

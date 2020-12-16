@@ -6,14 +6,14 @@ namespace player
 {
     public class PlayerDiscretion
     {
-        private int _discretionMax;
+        public int DiscretionMax { get; private set; }
         public int Discretion { get; private set; }
 
         // METHODS
         public void Initialize()
         {
-            _discretionMax = 100;
-            Discretion = _discretionMax;
+            DiscretionMax = 100;
+            Discretion = DiscretionMax;
         }
 
         public bool IsDiscover()
@@ -23,15 +23,15 @@ namespace player
 
         public bool IsFullyHide()
         {
-            return Discretion == _discretionMax;
+            return Discretion == DiscretionMax;
         }
 
         public void AddDiscretion(int discretionToAdd)
         {
             Discretion += discretionToAdd;
-            if (Discretion > _discretionMax)
+            if (Discretion > DiscretionMax)
             {
-                Discretion = _discretionMax;
+                Discretion = DiscretionMax;
             }
         }
 
