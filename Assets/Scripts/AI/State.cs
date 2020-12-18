@@ -23,7 +23,7 @@ public class State
     protected State nextState;
     protected NavMeshAgent agent;
 
-    float visDist = 10.0f;
+    float visDist = 30.0f;
     float visAngle = 30.0f;
     float shootDist = 7.0f;
 
@@ -78,6 +78,7 @@ public class State
 
 public class Idle : State
 {
+    bool patrol;
     public Idle(GameObject _npc, NavMeshAgent _agent,  Transform _player)
         : base(_npc, _agent,  _player)
     {
@@ -85,8 +86,8 @@ public class Idle : State
     }
     public override void Enter()
     {
+        patrol = npc.GetComponent<AIController>().basePatrol;
         base.Enter();
-      //  anim.SetTrigger("isIdle");
     }
 
     public override void Update()
@@ -96,7 +97,7 @@ public class Idle : State
             nextState = new Pursue(npc, agent, player);
             stage = EVENT.EXIT;
         }
-        else if(Random.Range(0,100)<10)
+        else if(patrol && Random.Range(0,6000)<10)
         {
             nextState = new Patrol(npc, agent, player);
             stage = EVENT.EXIT;
@@ -105,7 +106,6 @@ public class Idle : State
     }
     public override void Exit()
     {
-        //anim.ResetTrigger("isIdle");
         base.Exit();
     }
 }
@@ -114,7 +114,7 @@ public class Idle : State
 public class Patrol : State
 {
     int currentIndex = -1;
-
+    GameObject[] checkpoints;
     public Patrol(GameObject _npc, NavMeshAgent _agent, Transform _player)
         : base(_npc, _agent, _player)
     {
@@ -125,10 +125,11 @@ public class Patrol : State
 
     public override void Enter()
     {
+        checkpoints = npc.GetComponent<AIController>().waypoints;
         float lastDist = Mathf.Infinity;
-        for (int i = 0 ; i < GameEnvironment.Singleton.Checkpoints.Count; i++)
+        for (int i = 0 ; i <checkpoints.Length; i++)
         {
-            GameObject thisWP = GameEnvironment.Singleton.Checkpoints[i];
+            GameObject thisWP = checkpoints[i];
             float distance = Vector3.Distance(npc.transform.position, thisWP.transform.position);
             if(distance < lastDist)
             {
@@ -136,7 +137,6 @@ public class Patrol : State
                 lastDist = distance;
             }    
         }
-     //   anim.SetTrigger("isWalking");
         base.Enter();
     }
 
@@ -144,7 +144,7 @@ public class Patrol : State
     {
         if (agent.remainingDistance < 1)
         {
-            if(currentIndex>= GameEnvironment.Singleton.Checkpoints.Count - 1)
+            if(currentIndex>=checkpoints.Length - 1)
             {
                 currentIndex = 0;
             }
@@ -153,7 +153,7 @@ public class Patrol : State
                 currentIndex++;
             }
 
-            agent.SetDestination(GameEnvironment.Singleton.Checkpoints[currentIndex].transform.position);
+            agent.SetDestination(checkpoints[currentIndex].transform.position);
         }
         if (CanSeePlayer())
         {
@@ -164,7 +164,6 @@ public class Patrol : State
 
     public override void Exit()
     {
-       // anim.ResetTrigger("isWalking");
         base.Exit();
     }
 
@@ -237,15 +236,26 @@ public class Attack : State
         npc.transform.rotation = Quaternion.Slerp(npc.transform.rotation,
             Quaternion.LookRotation(direction),
             Time.deltaTime * rotationSpeed);
-        if (!CanAttackPlayer())
+        if (!CanSeePlayer())
         {
             nextState = new Search(npc, agent, player);
             stage = EVENT.EXIT;
+        }
+        else if (!CanAttackPlayer())
+        {
+            nextState = new Pursue(npc, agent, player);
+            stage = EVENT.EXIT;
+        }
+        else
+        {
+            //code de l'attaque
         }
     }
 
     public override void Exit()
     {
+        agent.isStopped = false;
+
         base.Exit();
     }
 
@@ -264,16 +274,25 @@ public class Search : State
 
     public override void Enter()
     {
-        base.Enter();
         lastPosition = player.position;
+
+        base.Enter();
     }
 
     public override void Update()
     {
         agent.SetDestination(player.position);
-        if (agent.remainingDistance < 1)
+        if (CanSeePlayer())
         {
-            new Idle(npc, agent, player);
+            nextState = new Pursue(npc, agent, player);
+            stage = EVENT.EXIT;
+
+        }
+        else if (agent.remainingDistance < 1)
+        {
+            nextState = new Idle(npc, agent, player);
+            stage = EVENT.EXIT;
+
         }
 
     }

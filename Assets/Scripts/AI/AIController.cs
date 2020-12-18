@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AI : MonoBehaviour
+public class AIController : MonoBehaviour
 {
     NavMeshAgent agent;
    // Animator anim;
     public Transform player;
     public State currentState;
-    
-    
+    public bool basePatrol;
+    public GameObject[] waypoints;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,6 @@ public class AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("test");
         currentState = currentState.Process();   
     }
 }
