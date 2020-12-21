@@ -9,6 +9,10 @@ public class TopDownMovement : MonoBehaviour
     public float speed = 3f;
     bool shift = false;
     bool crouch = false;
+    bool Z = false;
+    bool S = false;
+    bool Q = false;
+    bool D = false;
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -42,8 +46,55 @@ public class TopDownMovement : MonoBehaviour
             realspeed = speed;
         }
 
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        if(Input.GetKeyDown(KeyCode.Z)) {
+            Z = true;
+        }
+        if(Input.GetKeyUp(KeyCode.Z)) {
+            Z = false;
+        }
+        if(Input.GetKeyDown(KeyCode.S)) {
+            S = true;
+        }
+        if(Input.GetKeyUp(KeyCode.S)) {
+            S = false;
+        }
+        
+        float vertical;
+        if((Z & S) | !(Z | S)) {
+            vertical = 0;
+        }
+        else if(Z) {
+            vertical = 1;
+        }
+        else {
+            vertical = -1;
+        }
+        
+
+        if(Input.GetKeyDown(KeyCode.Q)) {
+            Q = true;
+        }
+        if(Input.GetKeyUp(KeyCode.Q)) {
+            Q = false;
+        }
+        if(Input.GetKeyDown(KeyCode.D)) {
+            D = true;
+        }
+        if(Input.GetKeyUp(KeyCode.D)) {
+            D = false;
+        }
+
+        float horizontal;
+        if((Q & D) | !(Q | D)) {
+            horizontal = 0;
+        }
+        else if(D) {
+            horizontal = 1;
+        }
+        else {
+            horizontal = -1;
+        }
+
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
         if(direction.magnitude >= 0.1f)

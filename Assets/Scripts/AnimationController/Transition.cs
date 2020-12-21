@@ -34,10 +34,10 @@ public class Transition : MonoBehaviour
             brun = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.W)) {
+        if (Input.GetKeyDown(KeyCode.Z)) {
             up = true;
         }
-        else if (Input.GetKeyUp(KeyCode.W)) {
+        else if (Input.GetKeyUp(KeyCode.Z)) {
             up = false;
         }
 
@@ -48,10 +48,10 @@ public class Transition : MonoBehaviour
             down = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.A)) {
+        if (Input.GetKeyDown(KeyCode.Q)) {
             left = true;
         }
-        else if (Input.GetKeyUp(KeyCode.A)) {
+        else if (Input.GetKeyUp(KeyCode.Q)) {
             left = false;
         }
 
