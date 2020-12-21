@@ -1,36 +1,43 @@
-﻿using System.Collections;
+﻿using game.save;
+using game.save.snapshot;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace player
 {
-    public class Player : MonoBehaviour
+    public class Player : MonoBehaviour, IGameSaveDataHolder
     {
         private Vector3 _startingPos;
         public PlayerHealth PlayerHealth { get; private set; }
         public PlayerMoney PlayerMoney { get; private set; }
         public PlayerDiscretion PlayerDiscretion { get; private set; }
+        public bool Initialized { get; private set; }
 
         // METHODS
         public void Awake()
         {
-            PlayerHealth = new PlayerHealth();
-            PlayerMoney = new PlayerMoney();
-            PlayerDiscretion = new PlayerDiscretion();
+            Initialized = false;
             Initialize();
         }
 
         public void Initialize()
         {
             SetStartingPos(this.gameObject.transform.localPosition);
-            PlayerHealth.Initialize();
+
+            PlayerHealth = new PlayerHealth();
+            PlayerMoney = new PlayerMoney();
+            PlayerDiscretion = new PlayerDiscretion();
+
+            //PlayerHealth.Initialize();
             PlayerMoney.Initialize();
             PlayerDiscretion.Initialize();
+
+            Initialized = true;
         }
 
         public void SetStartingPos(Vector3 pos)
         {
-            Debug.Log("Starting pos = " + pos);
             _startingPos = pos;
         }
 
@@ -42,11 +49,13 @@ namespace player
                 // Death animation
 
             }
+            SaveFromGameSaveManager();
         }
 
         public void Heal(int heal)
         {
             PlayerHealth.AddHealth(heal);
+            SaveFromGameSaveManager();
         }
 
         public void IncreaseMoney(int money)
@@ -67,6 +76,30 @@ namespace player
         public void DecreaseDiscretion(int discretion)
         {
             PlayerDiscretion.RemoveDiscretion(discretion);
+        }
+
+        public void SaveFromGameSaveManager()
+        {
+            GameSaveManager.Instance.Save();
+        }
+
+        public void Load(GameSnapshotBase save)
+        {
+            Debug.Log("Loading data from the game save");
+            GameSnapshot snapshot = (GameSnapshot)save;
+
+            //this.Initialize();
+            PlayerHealth = snapshot.PlayerHealth;
+            Debug.Log("PlayerHealth == null ? " + PlayerHealth is null);
+            Debug.Log("PlayerHealth.MaxHealth = " + PlayerHealth.MaxHealth);
+            Debug.Log("PlayerHealth.Health = " + PlayerHealth.Health);
+        }
+
+        public void Save(GameSnapshotBase snapshot)
+        {
+            Debug.Log("Saving data from the game save");
+            GameSnapshot gameSnapshot = ((GameSnapshot)snapshot);
+            gameSnapshot.PlayerHealth = this.PlayerHealth;
         }
     }
 }

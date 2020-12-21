@@ -12,7 +12,7 @@ namespace skilltree
 		[SerializeField] private string _id = default;
 
 		[TextArea(3, 5)]
-		[SerializeField] private string notes = default;
+		[SerializeField] private string _notes = default;
 
 		[SerializeField] private List<SkillCollection> _childSkills = new List<SkillCollection>();
 		[SerializeField] private Rect _windowRect = default;

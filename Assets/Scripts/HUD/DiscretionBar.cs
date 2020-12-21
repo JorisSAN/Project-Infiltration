@@ -7,7 +7,7 @@ namespace hud
 {
 	public class DiscretionBar : MonoBehaviour
 	{
-		[SerializeField] private Slider _slider;
+		[SerializeField] private Slider _slider = default;
 
 		// METHODS
 		public void SetMaxDiscretion(int discretion)

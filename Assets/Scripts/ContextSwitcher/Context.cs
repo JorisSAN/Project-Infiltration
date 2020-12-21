@@ -10,8 +10,8 @@ namespace contextswitcher
     /// </summary>
     public class Context : MonoBehaviour
     {
-        [SerializeField] private GameObject _context;
-        [SerializeField] private string _name;
+        [SerializeField] private GameObject _context = default;
+        [SerializeField] private string _name = default;
         private bool _isActive;
 
         public string Name

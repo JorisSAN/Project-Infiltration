@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2772889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6019901298782929516, guid: b2c70f046a8727c4f9b1d8828b6b6d24,
+    type: 3}
+  m_PrefabInstance: {fileID: 1151711862}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &11796340
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -887,7 +893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -1737,7 +1743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -1946,7 +1952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -2447,7 +2453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -2630,7 +2636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -2684,7 +2690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -2738,7 +2744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -3017,7 +3023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -3788,7 +3794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -5029,7 +5035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -5623,7 +5629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Diversion
   _id: 
-  notes: 
+  _notes: 
   _childSkills:
   - {fileID: 1606575475}
   _windowRect:
@@ -5769,7 +5775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Pas silencieux
   _id: 
-  notes: 
+  _notes: 
   _childSkills:
   - {fileID: 1014236020}
   _windowRect:
@@ -5865,7 +5871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -6239,7 +6245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -6443,7 +6449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -7328,7 +7334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills:
   - {fileID: 1797926602}
   - {fileID: 500512363}
@@ -7571,7 +7577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -8258,7 +8264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -8421,7 +8427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: "Nuage de fum\xE9e"
   _id: 
-  notes: 
+  _notes: 
   _childSkills:
   - {fileID: 2044893218}
   _windowRect:
@@ -9036,7 +9042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -9092,7 +9098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills:
   - {fileID: 1398951358}
   _windowRect:
@@ -9241,7 +9247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -9548,7 +9554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -10050,7 +10056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -10507,7 +10513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Incognito
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -10694,7 +10700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skill Collection
   _id: 
-  notes: 
+  _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
@@ -11324,6 +11330,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2526696617950281495}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2099294625736834602
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2797568967255930429, guid: 978d0cc7e96814b4f97d9f3c377d4352,
+        type: 3}
+      propertyPath: _gameSaveManager
+      value: 
+      objectReference: {fileID: 8456019266097640518}
+    - target: {fileID: 6998948666138949085, guid: 978d0cc7e96814b4f97d9f3c377d4352,
+        type: 3}
+      propertyPath: m_Name
+      value: GameInitializer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465942151632345518, guid: 978d0cc7e96814b4f97d9f3c377d4352,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1432.1211
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465942151632345518, guid: 978d0cc7e96814b4f97d9f3c377d4352,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.766123
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465942151632345518, guid: 978d0cc7e96814b4f97d9f3c377d4352,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.1298885
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465942151632345518, guid: 978d0cc7e96814b4f97d9f3c377d4352,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465942151632345518, guid: 978d0cc7e96814b4f97d9f3c377d4352,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465942151632345518, guid: 978d0cc7e96814b4f97d9f3c377d4352,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465942151632345518, guid: 978d0cc7e96814b4f97d9f3c377d4352,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465942151632345518, guid: 978d0cc7e96814b4f97d9f3c377d4352,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465942151632345518, guid: 978d0cc7e96814b4f97d9f3c377d4352,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465942151632345518, guid: 978d0cc7e96814b4f97d9f3c377d4352,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465942151632345518, guid: 978d0cc7e96814b4f97d9f3c377d4352,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 978d0cc7e96814b4f97d9f3c377d4352, type: 3}
 --- !u!1001 &2526696617950281495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11717,6 +11797,97 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6362473714566829078}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8456019266097640517
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2438047267625231682, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
+        type: 3}
+      propertyPath: m_Name
+      value: GameSaveManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7068912248386840776, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
+        type: 3}
+      propertyPath: _dataHolders.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7068912248386840776, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
+        type: 3}
+      propertyPath: _dataHolders.Array.data[0]
+      value: 
+      objectReference: {fileID: 2772889}
+    - target: {fileID: 8392842216841170374, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1432.1211
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392842216841170374, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.766123
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392842216841170374, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.1298885
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392842216841170374, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392842216841170374, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392842216841170374, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392842216841170374, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392842216841170374, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392842216841170374, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392842216841170374, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392842216841170374, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0b52cfd8630c5be409205d2c0fcb0c15, type: 3}
+--- !u!114 &8456019266097640518 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7068912248386840776, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
+    type: 3}
+  m_PrefabInstance: {fileID: 8456019266097640517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27210b39b66bfa44ca911772ecb3abdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8778621813366996470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8142348642239155764, guid: c9ab4494f368ce348ae84ed696141e54,

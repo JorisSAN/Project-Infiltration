@@ -7,8 +7,8 @@ namespace hud
 {
 	public class MoneyContainer : MonoBehaviour
 	{
-		[SerializeField] private Text _amount;
-		[SerializeField] private Image _icon;
+        [SerializeField] private Text _amount = default;
+        [SerializeField] private Image _icon = default;
         [SerializeField] private int _beginFontSize = 36;
         [SerializeField] private int _bigAnimatedFont = 60;
 

@@ -7,9 +7,9 @@ namespace hud
 {
 	public class HealthBar : MonoBehaviour
 	{
-		[SerializeField] private Slider _slider;
-		[SerializeField] private Gradient _gradient;
-		[SerializeField] private Image _fill;
+		[SerializeField] private Slider _slider = default;
+		[SerializeField] private Gradient _gradient = default;
+		[SerializeField] private Image _fill = default;
 
 		// METHODS
 		public void SetMaxHealth(int health)

@@ -7,9 +7,9 @@ namespace loadingscreen
 {
     public class LoadingScreen : MonoBehaviour
     {
-        [SerializeField] private Slider _slider;
-        [SerializeField] private Text _progressText;
-        [SerializeField] private Text _title;
+        [SerializeField] private Slider _slider = default;
+        [SerializeField] private Text _progressText = default;
+        [SerializeField] private Text _title = default;
 
 
         public void ChangeProgressText(string newText)

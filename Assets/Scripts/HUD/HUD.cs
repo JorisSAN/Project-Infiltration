@@ -14,9 +14,9 @@ namespace hud
         [SerializeField, NoNull] private DiscretionBar _discretionBar = default;
 
         // METHODS
-        public void Awake()
+        public void Start()
         {
-            Initialize();
+            StartCoroutine(Initialize());
         }
 
         public void Update()
@@ -27,8 +27,10 @@ namespace hud
             //_discretionBar.SetDiscretion(_player.PlayerDiscretion.Discretion);
         }
 
-        public void Initialize()
+        public IEnumerator Initialize()
         {
+            yield return new WaitUntil(() => _player.Initialized);
+
             _healthBar.SetMaxHealth(_player.PlayerHealth.MaxHealth);
             _healthBar.SetHealth(_player.PlayerHealth.Health);
 

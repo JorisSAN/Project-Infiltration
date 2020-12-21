@@ -1,13 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace player
 {
+    [Serializable]
     public class PlayerHealth
     {
-        public int MaxHealth { get; private set; }
-        public int Health { get; private set; }
+        public int MaxHealth { get; set; }
+        public int Health { get; set; }
+
+        public PlayerHealth()
+        {
+            Initialize();
+        }
 
         // METHODS
         public void Initialize()

@@ -12,7 +12,7 @@ namespace contextswitcher.loader
     /// </summary>
     public class LevelLoader : Loader
     {
-        [SerializeField] private LoadingScreen _loadingScreen;
+        [SerializeField] private LoadingScreen _loadingScreen = default;
 
         /// <summary>
         /// Load a level at sceneIndex
