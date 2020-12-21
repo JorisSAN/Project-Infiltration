@@ -60,7 +60,9 @@ namespace IndiePixel.Cameras
             Vector3 finalPosition = flatTargetPosition + rotatedVector;
             Debug.DrawLine(m_Target.position, finalPosition, Color.blue);
             
-            transform.position = Vector3.SmoothDamp(transform.position, finalPosition, ref refVelocity, m_SmoothSpeed);
+            Vector3 finaly = Vector3.SmoothDamp(transform.position, finalPosition, ref refVelocity, m_SmoothSpeed);
+            finaly.z = m_Target.position.z - m_Distance;
+            transform.position = finaly;
             transform.LookAt(flatTargetPosition);
         }
 
