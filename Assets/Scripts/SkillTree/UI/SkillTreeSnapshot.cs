@@ -1,27 +1,36 @@
-﻿using System.Collections;
+﻿using game.save;
+using game.save.snapshot;
+using player;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace skilltree
 {
-	public class SkillTreeSnapshot : MonoBehaviour
+	public class SkillTreeSnapshot : MonoBehaviour, IGameSaveDataHolder
 	{
 		private SaveSkillTree _snapshot;
-		private SkillMenu _menu;
-
-		void Awake()
-		{
-			_menu = GetComponent<SkillMenu>();
-			//LoadSnapshotFromDataBase();
-		}
+		[SerializeField] private SkillMenu _menu = default;
+		[SerializeField] private Player _player = default;
 
 		public void SaveSnapshot()
 		{
 			_snapshot = _menu._skillTree.GetSnapshot();
-			SaveSnapshotToDataBase();
+			SaveFromGameSaveManager();
+
+			// Load skills to player
+			_player.LoadSkills(_snapshot._skills);
 		}
 
 		public void LoadSnapshot()
+		{
+			if (_snapshot != null)
+			{
+				_menu._skillTree.LoadSnapshot(_snapshot);
+			}
+		}
+
+		public void ResetSnapshot()
 		{
 			if (_snapshot != null)
 			{
@@ -31,39 +40,24 @@ namespace skilltree
 			}
 		}
 
-
-		/* SAVE SYSTEM TEMPORAIRE */
-
-		public void SaveSnapshotToDataBase()
+		public void SaveFromGameSaveManager()
 		{
-			// NOT IMPLEMENTED YET
+			GameSaveManager.Instance.Save();
 		}
 
-		public void LoadSnapshotFromDataBase()
-		{
-			// NOT IMPLEMENTED YET
+		public void Load(GameSnapshotBase save)
+        {
+			GameSnapshot snapshot = (GameSnapshot)save;
+			_snapshot = snapshot.SkillTree;
+
 			LoadSnapshot();
 		}
-		/*
-		protected override T Deserialize<T>(string dataToDeserialize)
-		{
-			T savedObject;
-			try
-			{
-				savedObject = JsonConvert.DeserializeObject<T>(dataToDeserialize);
-			}
-			catch (Exception exception)
-			{
-				throw new SavedDataLoadException($"The {_saveName} save file isn't of type {typeof(T)}.\n{exception.ToString()}");
-			}
-			return savedObject;
-		}
 
-		protected override string Serialize<T>(T dataToSerialize)
-		{
-			return JsonConvert.SerializeObject(dataToSerialize);
+        public void Save(GameSnapshotBase snapshot)
+        {
+			GameSnapshot gameSnapshot = ((GameSnapshot)snapshot);
+			gameSnapshot.SkillTree = _snapshot;
+			gameSnapshot.PlayerSkills = _snapshot._skills;
 		}
-		*/
-		/* SAVE SYSTEM TEMPORAIRE */
-	}
+    }
 }

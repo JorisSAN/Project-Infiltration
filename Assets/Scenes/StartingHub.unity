@@ -127,6 +127,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1151711862}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2772891 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5890112217006523085, guid: b2c70f046a8727c4f9b1d8828b6b6d24,
+    type: 3}
+  m_PrefabInstance: {fileID: 1151711862}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2772889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162c060d5eee9724db8946fb03c1c7f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &11796340
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +425,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: p
+  _uuid: p
   _notes: 
   _childSkills: []
   _windowRect:
@@ -466,8 +479,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: +20% silence
-  _id: 
+  _id: 2
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: "Augmente votre discr\xE9tion de 20%"
   _levelRequirement: 0
   _extraRequirements: []
@@ -762,7 +777,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Armes
-  _id: 
+  _id: Armes
+  _uuid: Armes
   _description: 
   _skillLevel: 3
 --- !u!1 &145837947
@@ -872,10 +888,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 870687337}
-  - {fileID: 374095458}
-  - {fileID: 704837510}
-  - {fileID: 1294804308}
-  - {fileID: 368500894}
   m_Father: {fileID: 828371113}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -892,7 +904,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: n
+  _uuid: n
   _notes: 
   _childSkills: []
   _windowRect:
@@ -1181,8 +1194,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 32
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -1291,7 +1306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Infiltration
-  _id: 
+  _id: Infiltration
+  _uuid: Infiltration
   _description: 
   _skillLevel: 5
 --- !u!4 &257788596
@@ -1565,8 +1581,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 14
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: "Vous prenez l'apparance d'un garde pendant 5 secondes (impossible
     d'\xEAtre d\xE9tect\xE9 par un autre garde)"
   _levelRequirement: 0
@@ -1742,7 +1760,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: l
+  _uuid: l
   _notes: 
   _childSkills: []
   _windowRect:
@@ -1751,104 +1770,6 @@ MonoBehaviour:
     y: 0
     width: 220
     height: 150
---- !u!1 &368500893
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 368500894}
-  - component: {fileID: 368500895}
-  m_Layer: 0
-  m_Name: Skill
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &368500894
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 368500893}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 169527594}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &368500895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 368500893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 864f3e447892bf144932f14fee2f3251, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayName: Skill
-  _id: 
-  _unlocked: 0
-  _description: 
-  _levelRequirement: 0
-  _extraRequirements: []
---- !u!1 &374095457
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 374095458}
-  - component: {fileID: 374095459}
-  m_Layer: 0
-  m_Name: Skill
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &374095458
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 374095457}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 169527594}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &374095459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 374095457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 864f3e447892bf144932f14fee2f3251, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayName: Skill
-  _id: 
-  _unlocked: 0
-  _description: 
-  _levelRequirement: 0
-  _extraRequirements: []
 --- !u!1 &374838226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,7 +1872,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: aa
+  _uuid: aa
   _notes: 
   _childSkills: []
   _windowRect:
@@ -2144,8 +2066,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 34
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -2452,7 +2376,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: z
+  _uuid: z
   _notes: 
   _childSkills: []
   _windowRect:
@@ -2635,7 +2560,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: g
+  _uuid: g
   _notes: 
   _childSkills: []
   _windowRect:
@@ -2689,7 +2615,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: q
+  _uuid: q
   _notes: 
   _childSkills: []
   _windowRect:
@@ -2743,7 +2670,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: s
+  _uuid: s
   _notes: 
   _childSkills: []
   _windowRect:
@@ -2796,8 +2724,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 22
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -2923,8 +2853,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 13
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -2972,8 +2904,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 24
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -3022,7 +2956,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: i
+  _uuid: i
   _notes: 
   _childSkills: []
   _windowRect:
@@ -3075,8 +3010,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 9
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -3262,55 +3199,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c4939725445b5c4fac67f75c924fc3a, type: 3}
---- !u!1 &704837509
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 704837510}
-  - component: {fileID: 704837511}
-  m_Layer: 0
-  m_Name: Skill
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &704837510
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704837509}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 169527594}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &704837511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704837509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 864f3e447892bf144932f14fee2f3251, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayName: Skill
-  _id: 
-  _unlocked: 0
-  _description: 
-  _levelRequirement: 0
-  _extraRequirements: []
 --- !u!1 &717764021
 GameObject:
   m_ObjectHideFlags: 0
@@ -3393,8 +3281,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 33
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -3526,6 +3416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389db3d4ff40f57458473683c48d96d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _menu: {fileID: 746575256}
+  _player: {fileID: 2772891}
 --- !u!114 &746575256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3665,8 +3557,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 23
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -3793,7 +3687,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: y
+  _uuid: y
   _notes: 
   _childSkills: []
   _windowRect:
@@ -4246,8 +4141,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 5
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 5
   _extraRequirements: []
@@ -4306,7 +4203,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Combat
-  _id: 
+  _id: Combat
+  _uuid: Combat
   _description: 
   _skillLevel: 7
 --- !u!224 &851305066 stripped
@@ -4834,8 +4732,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 20
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -4984,8 +4884,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 21
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -5034,7 +4936,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: m
+  _uuid: m
   _notes: 
   _childSkills: []
   _windowRect:
@@ -5087,8 +4990,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: +10% silence
-  _id: 
+  _id: 1
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: "Augmente votre discr\xE9tion de 10%"
   _levelRequirement: 0
   _extraRequirements: []
@@ -5136,8 +5041,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: ecran_de_fumee
+  _uuid: 
   _unlocked: 0
+  _usable: 1
   _description: "L\xE2che un nuage de fum\xE9e \xE0 vos pieds pour vous permettre
     de dispara\xEEtre"
   _levelRequirement: 5
@@ -5466,8 +5373,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: +30% silence
-  _id: 
+  _id: 3
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: "Augmente votre discr\xE9tion de 30%"
   _levelRequirement: 0
   _extraRequirements: []
@@ -5593,8 +5502,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 4
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -5628,7 +5539,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Diversion
-  _id: 
+  _id: c
+  _uuid: c
   _notes: 
   _childSkills:
   - {fileID: 1606575475}
@@ -5774,7 +5686,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Pas silencieux
-  _id: 
+  _id: a
+  _uuid: a
   _notes: 
   _childSkills:
   - {fileID: 1014236020}
@@ -5870,7 +5783,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: x
+  _uuid: x
   _notes: 
   _childSkills: []
   _windowRect:
@@ -5923,8 +5837,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 10
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -5972,8 +5888,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 18
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -6152,53 +6070,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110219250}
   m_CullTransparentMesh: 0
---- !u!1 &1110534972
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1110534974}
-  - component: {fileID: 1110534973}
-  m_Layer: 0
-  m_Name: ContextSwitcher
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1110534973
+--- !u!114 &1110534973 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3197102471863178928, guid: 39348d257d1cf62408c9cae4e1d8a9bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 3197102470821903757}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110534972}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e95fd9b5971aa9f4ebb3a6d6a2d43f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainContext: {fileID: 490490643}
-  _otherContexts:
-  - {fileID: 462637201}
-  - {fileID: 1762527048}
---- !u!4 &1110534974
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110534972}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 121.92764, y: -559.3593, z: 1309.3909}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1124619978
 GameObject:
   m_ObjectHideFlags: 0
@@ -6244,7 +6127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: r
+  _uuid: r
   _notes: 
   _childSkills: []
   _windowRect:
@@ -6448,13 +6332,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: j
+  _uuid: j
   _notes: 
   _childSkills: []
   _windowRect:
     serializedVersion: 2
-    x: 0
-    y: 0
+    x: -0
+    y: -0
     width: 220
     height: 150
 --- !u!1 &1220370056
@@ -6639,8 +6524,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 19
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -6923,55 +6810,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1291912502}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1294804307
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1294804308}
-  - component: {fileID: 1294804309}
-  m_Layer: 0
-  m_Name: Skill
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1294804308
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294804307}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 169527594}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1294804309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294804307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 864f3e447892bf144932f14fee2f3251, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayName: Skill
-  _id: 
-  _unlocked: 0
-  _description: 
-  _levelRequirement: 0
-  _extraRequirements: []
 --- !u!1 &1296038333
 GameObject:
   m_ObjectHideFlags: 0
@@ -7016,8 +6854,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 26
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -7154,8 +6994,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 6
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 2
   _extraRequirements: []
@@ -7203,8 +7045,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Jet de cailloux
-  _id: 
+  _id: 7
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: Vous permez de jeter un cailloux pour faire diversion
   _levelRequirement: 2
   _extraRequirements: []
@@ -7333,7 +7177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: d
+  _uuid: d
   _notes: 
   _childSkills:
   - {fileID: 1797926602}
@@ -7576,7 +7421,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: t
+  _uuid: t
   _notes: 
   _childSkills: []
   _windowRect:
@@ -7629,8 +7475,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 16
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -7678,8 +7526,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 25
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -7856,8 +7706,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 28
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -8263,7 +8115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: o
+  _uuid: o
   _notes: 
   _childSkills: []
   _windowRect:
@@ -8316,8 +8169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 31
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -8426,7 +8281,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: "Nuage de fum\xE9e"
-  _id: 
+  _id: e
+  _uuid: e
   _notes: 
   _childSkills:
   - {fileID: 2044893218}
@@ -8677,8 +8533,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 17
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -8726,8 +8584,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 12
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -8991,8 +8851,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 29
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -9041,7 +8903,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: w
+  _uuid: w
   _notes: 
   _childSkills: []
   _windowRect:
@@ -9097,7 +8960,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: b
+  _uuid: b
   _notes: 
   _childSkills:
   - {fileID: 1398951358}
@@ -9195,8 +9059,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 27
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -9246,7 +9112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: u
+  _uuid: u
   _notes: 
   _childSkills: []
   _windowRect:
@@ -9553,7 +9420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: f
+  _uuid: f
   _notes: 
   _childSkills: []
   _windowRect:
@@ -9801,8 +9669,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 15
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -10055,7 +9925,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: bb
+  _uuid: bb
   _notes: 
   _childSkills: []
   _windowRect:
@@ -10370,8 +10241,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 8
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -10512,7 +10385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Incognito
-  _id: 
+  _id: h
+  _uuid: h
   _notes: 
   _childSkills: []
   _windowRect:
@@ -10699,7 +10573,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill Collection
-  _id: 
+  _id: v
+  _uuid: v
   _notes: 
   _childSkills: []
   _windowRect:
@@ -10905,8 +10780,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 30
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -11229,8 +11106,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Skill
-  _id: 
+  _id: 35
+  _uuid: 
   _unlocked: 0
+  _usable: 0
   _description: 
   _levelRequirement: 0
   _extraRequirements: []
@@ -11473,6 +11352,90 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0533965547861641ac8e7a0ecc759fd, type: 3}
+--- !u!1001 &3197102470821903757
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3197102471863178928, guid: 39348d257d1cf62408c9cae4e1d8a9bd,
+        type: 3}
+      propertyPath: _mainContext
+      value: 
+      objectReference: {fileID: 490490643}
+    - target: {fileID: 3197102471863178928, guid: 39348d257d1cf62408c9cae4e1d8a9bd,
+        type: 3}
+      propertyPath: _otherContexts.Array.data[0]
+      value: 
+      objectReference: {fileID: 462637201}
+    - target: {fileID: 3197102471863178928, guid: 39348d257d1cf62408c9cae4e1d8a9bd,
+        type: 3}
+      propertyPath: _otherContexts.Array.data[1]
+      value: 
+      objectReference: {fileID: 1762527048}
+    - target: {fileID: 3197102471863178929, guid: 39348d257d1cf62408c9cae4e1d8a9bd,
+        type: 3}
+      propertyPath: m_Name
+      value: ContextSwitcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197102471863178931, guid: 39348d257d1cf62408c9cae4e1d8a9bd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 121.92764
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197102471863178931, guid: 39348d257d1cf62408c9cae4e1d8a9bd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -559.3593
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197102471863178931, guid: 39348d257d1cf62408c9cae4e1d8a9bd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1309.3909
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197102471863178931, guid: 39348d257d1cf62408c9cae4e1d8a9bd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197102471863178931, guid: 39348d257d1cf62408c9cae4e1d8a9bd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197102471863178931, guid: 39348d257d1cf62408c9cae4e1d8a9bd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197102471863178931, guid: 39348d257d1cf62408c9cae4e1d8a9bd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197102471863178931, guid: 39348d257d1cf62408c9cae4e1d8a9bd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197102471863178931, guid: 39348d257d1cf62408c9cae4e1d8a9bd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197102471863178931, guid: 39348d257d1cf62408c9cae4e1d8a9bd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197102471863178931, guid: 39348d257d1cf62408c9cae4e1d8a9bd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 39348d257d1cf62408c9cae4e1d8a9bd, type: 3}
 --- !u!1001 &3412303083427585355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11812,13 +11775,18 @@ PrefabInstance:
     - target: {fileID: 7068912248386840776, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
         type: 3}
       propertyPath: _dataHolders.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7068912248386840776, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
         type: 3}
       propertyPath: _dataHolders.Array.data[0]
       value: 
       objectReference: {fileID: 2772889}
+    - target: {fileID: 7068912248386840776, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
+        type: 3}
+      propertyPath: _dataHolders.Array.data[1]
+      value: 
+      objectReference: {fileID: 746575253}
     - target: {fileID: 8392842216841170374, guid: 0b52cfd8630c5be409205d2c0fcb0c15,
         type: 3}
       propertyPath: m_LocalPosition.x
