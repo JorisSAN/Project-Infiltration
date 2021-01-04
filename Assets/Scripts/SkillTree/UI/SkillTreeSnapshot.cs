@@ -50,7 +50,7 @@ namespace skilltree
 			GameSnapshot snapshot = (GameSnapshot)save;
 			_snapshot = snapshot.SkillTree;
 
-			LoadSnapshot();
+			//LoadSnapshot();
 		}
 
         public void Save(GameSnapshotBase snapshot)

@@ -20,6 +20,8 @@ namespace skilltree
 		[SerializeField] private int _levelRequirement = default;
 		[SerializeField] private Skill[] _extraRequirements = default;
 
+		[SerializeField] private Sprite _icon = default;
+
 		private SkillCategory _category;
 		private SkillCollection _collection;
 		private SkillTree _tree;
@@ -80,6 +82,14 @@ namespace skilltree
 				return _extraRequirements;
 			}
 		}
+
+		public Sprite Icon
+        {
+			get
+            {
+				return _icon;
+            }
+        }
 
 		public SkillCategory Category
 		{
