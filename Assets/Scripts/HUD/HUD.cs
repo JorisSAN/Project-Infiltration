@@ -21,10 +21,7 @@ namespace hud
 
         public void Update()
         {
-            //_healthBar.SetHealth(_player.PlayerHealth.Health);
-            //_money.SetAmount(_player.PlayerMoney.Money.ToString());
-            //_moneyContainer.DisplayCurrencyAmountChange(_player.PlayerMoney.Money);
-            //_discretionBar.SetDiscretion(_player.PlayerDiscretion.Discretion);
+            _discretionBar.SetDiscretion(_player.PlayerDiscretion.Discretion);
         }
 
         public IEnumerator Initialize()

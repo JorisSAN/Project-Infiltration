@@ -17,6 +17,32 @@ public class TopDownMovement : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
+    public bool IsWalking
+    {
+        get
+        {
+            bool walkVertical = !((Z & S) | !(Z | S));
+            bool walkHorizontal = !((Q & D) | !(Q | D));
+            return walkVertical || walkHorizontal;
+        }
+    }
+
+    public bool IsRunning
+    {
+        get
+        {
+            return IsWalking && shift;
+        }
+    }
+
+    public bool IsCrouching
+    {
+        get
+        {
+            return IsWalking && crouch;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -105,5 +131,20 @@ public class TopDownMovement : MonoBehaviour
 
             controller.Move(direction * realspeed * Time.deltaTime);
         }
+
+        /*
+        if (IsRunning)
+        {
+            Debug.Log("Is running");
+        }
+        else if (IsCrouching)
+        {
+            Debug.Log("Is crouching");
+        }
+        else if (IsWalking)
+        {
+            Debug.Log("Is walking");
+        }
+        */
     }
 }

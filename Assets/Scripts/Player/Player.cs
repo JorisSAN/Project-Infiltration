@@ -15,6 +15,9 @@ namespace player
         public PlayerMoney PlayerMoney { get; private set; }
         public PlayerDiscretion PlayerDiscretion { get; private set; }
         public PlayerSkillCollection PlayerSkillCollection { get; private set; }
+
+        [SerializeField] private TopDownMovement _playerMovement = default;
+
         public bool Initialized { get; private set; }
 
         // METHODS
@@ -26,11 +29,23 @@ namespace player
 
         public void Update()
         {
-            /* Inputs handler */
+            /* Use skill */
             if (Input.GetKeyDown(KeyCode.U))
             {
                 SelectSkill();
                 UseSkill();
+            }
+
+            /* Discretion update */
+            bool isWalking = _playerMovement.IsWalking;
+            bool isRunning = _playerMovement.IsRunning;
+            bool isCrouching = _playerMovement.IsCrouching;
+
+            PlayerDiscretion.ActualDiscretionTimer -= Time.deltaTime;
+            if (PlayerDiscretion.ActualDiscretionTimer < 0)
+            {
+                PlayerDiscretion.UpdateDiscretionWithMovement(isWalking, isRunning, isCrouching);
+                PlayerDiscretion.ActualDiscretionTimer = PlayerDiscretion.BaseDiscretionTimer;
             }
         }
 
