@@ -1175,7 +1175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6019901299394663191}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -1.052, z: 0}
+  m_LocalPosition: {x: 0, y: -1.052, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6019901298589060278}
@@ -1441,8 +1441,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6019901299608832526}
-  dissolveRenderers:
-  - {fileID: 6019901299394663185}
+  dissolveMaterials:
+  - {fileID: 2100000, guid: 5c4097a60419e57438921ff3361e9a4e, type: 2}
   speed: 6
   turnSmoothTime: 0.1
 --- !u!1 &6019901299630961758
