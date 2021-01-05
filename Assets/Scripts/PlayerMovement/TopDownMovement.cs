@@ -6,6 +6,11 @@ public class TopDownMovement : MonoBehaviour
 {
     public CharacterController controller;
 
+    [SerializeField] private Material[] dissolveMaterials;
+
+    private float targetDissolveValue = 0f;
+    private float currentDissolveValue = 0f;
+
     public float speed = 3f;
     bool shift = false;
     bool crouch = false;
@@ -13,6 +18,7 @@ public class TopDownMovement : MonoBehaviour
     bool S = false;
     bool Q = false;
     bool D = false;
+    bool leftClick = false;
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -131,7 +137,27 @@ public class TopDownMovement : MonoBehaviour
 
             controller.Move(direction * realspeed * Time.deltaTime);
         }
+        
+        if(Input.GetKeyDown(KeyCode.Mouse0)) {
+            leftClick = true;
+        }
+        if(Input.GetKeyUp(KeyCode.Mouse0)) {
+            leftClick = false;
+        }
 
+        if(leftClick) {
+            targetDissolveValue = 1f;
+        }
+        else {
+            targetDissolveValue = 0f;
+        }
+
+        currentDissolveValue = Mathf.Lerp(currentDissolveValue, targetDissolveValue, 2f * Time.deltaTime);
+
+        foreach(Material renderer in dissolveMaterials) {
+            renderer.SetFloat("_Dissolve", currentDissolveValue);
+        }
+        
         /*
         if (IsRunning)
         {
