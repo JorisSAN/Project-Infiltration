@@ -10,7 +10,9 @@ namespace skilltree
 		[DisplayName("Skill")] public string displayName = "Skill";
 
 		[SerializeField] private string _id = default;
+		[SerializeField] private string _uuid = default;
 		[SerializeField] private bool _unlocked = default;
+		[SerializeField] private bool _usable = default;
 
 		[TextArea(3, 5)]
 		[SerializeField] private string _description = default;
@@ -18,11 +20,11 @@ namespace skilltree
 		[SerializeField] private int _levelRequirement = default;
 		[SerializeField] private Skill[] _extraRequirements = default;
 
+		[SerializeField] private Sprite _icon = default;
+
 		private SkillCategory _category;
 		private SkillCollection _collection;
 		private SkillTree _tree;
-
-		private string uuid;
 
 		// GETTERS
 		public string Id
@@ -42,6 +44,18 @@ namespace skilltree
 			set
 			{
 				_unlocked = value;
+			}
+		}
+
+		public bool Usable
+		{
+			get
+			{
+				return _usable;
+			}
+			set
+			{
+				_usable = value;
 			}
 		}
 
@@ -68,6 +82,14 @@ namespace skilltree
 				return _extraRequirements;
 			}
 		}
+
+		public Sprite Icon
+        {
+			get
+            {
+				return _icon;
+            }
+        }
 
 		public SkillCategory Category
 		{
@@ -100,17 +122,18 @@ namespace skilltree
 		{
 			get
 			{
-				if (string.IsNullOrEmpty(uuid))
+				if (string.IsNullOrEmpty(_uuid))
 				{
-					uuid = System.Guid.NewGuid().ToString();
+					//_uuid = System.Guid.NewGuid().ToString();
+					_uuid = _id;
 				}
 
-				return uuid;
+				return _uuid;
 			}
 
 			set
 			{
-				uuid = value;
+				_uuid = value;
 			}
 		}
 

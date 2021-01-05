@@ -41,6 +41,7 @@ namespace skilltree
 		[SerializeField] private Text _sidebarRequirements = default;
 		[SerializeField] private Text _sidebarPurchasedMessage = default;
 		[SerializeField] private Button _sidebarPurchase = default;
+		[SerializeField] private Image _sidebarSkillIcon = default;
 
 		private void Start()
 		{
@@ -121,6 +122,7 @@ namespace skilltree
 				//node.ResetPosition();
 				node.ChangeContent(gridItem.Collection.displayName);
 				node.ChangeRectTransformAnchoredPosition(new Vector2((gridItem.X * cellSize.x) + cellPadding.x, (gridItem.Y * cellSize.y * -1f) - cellPadding.y));
+				node.AddIcon(gridItem.Collection.Skill.Icon);
 
 				node._menu = this;
 				node._skillCollection = gridItem.Collection;
@@ -231,6 +233,19 @@ namespace skilltree
 			_sidebarTitle.text = string.Format("{0}: Lvl {1}", skillCollection.displayName, skillCollection.SkillIndex + 1);
 			_sidebarBody.text = skillCollection.Skill.Description;
 
+			if (skillCollection.Skill.Icon != null)
+            {
+				_sidebarSkillIcon.sprite = skillCollection.Skill.Icon;
+				_sidebarSkillIcon.gameObject.SetActive(true);
+			}
+			else
+            {
+				_sidebarSkillIcon.gameObject.SetActive(false);
+			}
+
+			_sidebarSkillIcon.preserveAspect = true;
+			
+
 			string requirements = skillCollection.Skill.GetRequirements();
 			if (string.IsNullOrEmpty(requirements))
 			{
@@ -253,6 +268,7 @@ namespace skilltree
 					UpdateNodes();
 					ShowNodeDetails(node);
 					UpdateSkillPoints();
+					UpdateSkillIcon(node);
 				});
 			}
 			else if (status == NodeStatus.Unlocked)
@@ -278,6 +294,11 @@ namespace skilltree
 		{
 			_skillOutput.text = "Skill Points: " + _skillTree.SkillPoints;
 		}
+
+		private void UpdateSkillIcon(SkillNode node)
+        {
+			node.AddIcon(node._skillCollection.Skill.Icon);
+        }
 
 		private void Repaint()
 		{

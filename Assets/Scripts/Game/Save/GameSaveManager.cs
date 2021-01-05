@@ -89,7 +89,6 @@ namespace game.save
                 throw new Exception("Not initialized");
 
             SaverSystem saverToUse = _activePersistantSaver;
-            Debug.Log("Just before load job");
             new LoadJob().InitializeDataHolders(gameSaveDataHolders).Execute(loadTarget, saverToUse, callback);
         }
 

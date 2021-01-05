@@ -21,6 +21,8 @@ namespace skilltree
 		[SerializeField] private RectTransform _rectTransform = default;
 		[SerializeField] private Text _content = default;
 
+		private Sprite _icon;
+
 		public RectTransform RectTransform
 		{
 			get
@@ -71,5 +73,11 @@ namespace skilltree
 			float actualLocalY = gameObject.transform.localPosition.y;
 			gameObject.transform.localPosition = new Vector3(actualLocalX, actualLocalY, 0);
 		}
+
+		public void AddIcon(Sprite icon)
+        {
+			//_button.image.sprite = icon;
+			_icon = icon;
+        }
 	}
 }

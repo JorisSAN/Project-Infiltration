@@ -35,6 +35,8 @@ namespace skilltree
 		private Dictionary<string, SkillCollection> _collectionUuidLib = new Dictionary<string, SkillCollection>();
 		private Dictionary<string, Skill> _skillUuidLib = new Dictionary<string, Skill>();
 
+		private bool _initialized = false;
+
 		public int SkillPoints
 		{
 			get
@@ -55,10 +57,26 @@ namespace skilltree
 			}
 		}
 
-		// METHODS
+		public bool Initialized
+        {
+			get
+            {
+				return _initialized;
+            }
+        }
 
-		public virtual void Awake()
-		{
+        // METHODS
+
+        public void Awake()
+        {
+            if (!_initialized)
+            {
+				Initialize();
+			}
+        }
+
+        public void Initialize()
+        {
 			foreach (SkillCategory cat in GetCategories())
 			{
 				if (!string.IsNullOrEmpty(cat.Id)) _categoryLib[cat.Id] = cat;
@@ -78,6 +96,8 @@ namespace skilltree
 			}
 
 			_childParents = GetParentData();
+
+			_initialized = true;
 		}
 
 		/// <summary>
@@ -286,7 +306,8 @@ namespace skilltree
 				skills.Add(new SaveSkill
 				{
 					_uuid = s.Uuid,
-					_unlocked = s.Unlocked
+					_unlocked = s.Unlocked,
+					_usable = s.Usable
 				});
 			}
 
@@ -323,6 +344,8 @@ namespace skilltree
 		/// <param name="snapshot">Snapshot.</param>
 		virtual public void LoadSnapshot(SaveSkillTree snapshot)
 		{
+			Initialize();
+
 			this._skillPoints = snapshot._skillPoints;
 
 			foreach (SaveSkill s in snapshot._skills)
