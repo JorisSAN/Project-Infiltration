@@ -10,13 +10,12 @@ namespace skilltree
         [DisplayName("Category")] public string displayName = "Category";
 
         [SerializeField] private string _id = default;
+        [SerializeField] private string _uuid = default;
 
         [TextArea(3, 5)]
         [SerializeField] private string _description = default;
 
         [SerializeField] private int _skillLevel = 0;
-
-        private string uuid;
 
         // GETTERS
 
@@ -52,17 +51,17 @@ namespace skilltree
         {
             get
             {
-                if (string.IsNullOrEmpty(uuid))
+                if (string.IsNullOrEmpty(_uuid))
                 {
-                    uuid = System.Guid.NewGuid().ToString();
+                    _uuid = System.Guid.NewGuid().ToString();
                 }
 
-                return uuid;
+                return _uuid;
             }
 
             set
             {
-                uuid = value;
+                _uuid = value;
             }
         }
 

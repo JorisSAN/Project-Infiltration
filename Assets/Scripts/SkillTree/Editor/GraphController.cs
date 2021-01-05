@@ -403,7 +403,7 @@ namespace skilltree
 			GameObject go = new GameObject();
 			go.name = "Skill";
 			Skill s = go.AddComponent(_target.Skill) as Skill;
-			s.Uuid = Guid.NewGuid().ToString();
+			//s.Uuid = Guid.NewGuid().ToString();
 			go.transform.SetParent(col.transform);
 		}
 

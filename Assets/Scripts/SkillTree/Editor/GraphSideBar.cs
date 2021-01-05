@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Newtonsoft.Json.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -88,7 +89,7 @@ namespace skilltree
 			GUI.EndGroup(); // Container
 		}
 
-		void DrawBox(Rect position, Color color)
+		private void DrawBox(Rect position, Color color)
 		{
 			Color oldColor = GUI.color;
 

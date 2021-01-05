@@ -1,5 +1,7 @@
 ﻿using game.save;
 using game.save.snapshot;
+using player.skill;
+using skilltree;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +14,10 @@ namespace player
         public PlayerHealth PlayerHealth { get; private set; }
         public PlayerMoney PlayerMoney { get; private set; }
         public PlayerDiscretion PlayerDiscretion { get; private set; }
+        public PlayerSkillCollection PlayerSkillCollection { get; private set; }
+
+        [SerializeField] private TopDownMovement _playerMovement = default;
+
         public bool Initialized { get; private set; }
 
         // METHODS
@@ -21,6 +27,28 @@ namespace player
             Initialize();
         }
 
+        public void Update()
+        {
+            /* Use skill */
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                SelectSkill();
+                UseSkill();
+            }
+
+            /* Discretion update */
+            bool isWalking = _playerMovement.IsWalking;
+            bool isRunning = _playerMovement.IsRunning;
+            bool isCrouching = _playerMovement.IsCrouching;
+
+            PlayerDiscretion.ActualDiscretionTimer -= Time.deltaTime;
+            if (PlayerDiscretion.ActualDiscretionTimer < 0)
+            {
+                PlayerDiscretion.UpdateDiscretionWithMovement(isWalking, isRunning, isCrouching);
+                PlayerDiscretion.ActualDiscretionTimer = PlayerDiscretion.BaseDiscretionTimer;
+            }
+        }
+
         public void Initialize()
         {
             SetStartingPos(this.gameObject.transform.localPosition);
@@ -28,6 +56,7 @@ namespace player
             PlayerHealth = new PlayerHealth();
             PlayerMoney = new PlayerMoney();
             PlayerDiscretion = new PlayerDiscretion();
+            PlayerSkillCollection = new PlayerSkillCollection();
 
             //PlayerHealth.Initialize();
             PlayerMoney.Initialize();
@@ -78,6 +107,21 @@ namespace player
             PlayerDiscretion.RemoveDiscretion(discretion);
         }
 
+        public void SelectSkill()
+        {
+            PlayerSkillCollection.SelectSkill("ecran_de_fumee"); // Just an example for the moment
+        }
+
+        public void UseSkill()
+        {
+            PlayerSkillCollection.UseSkill();
+        }
+
+        public void LoadSkills(List<SaveSkill> skills)
+        {
+            PlayerSkillCollection.Load(skills);
+        }
+
         public void SaveFromGameSaveManager()
         {
             GameSaveManager.Instance.Save();
@@ -90,9 +134,7 @@ namespace player
 
             //this.Initialize();
             PlayerHealth = snapshot.PlayerHealth;
-            Debug.Log("PlayerHealth == null ? " + PlayerHealth is null);
-            Debug.Log("PlayerHealth.MaxHealth = " + PlayerHealth.MaxHealth);
-            Debug.Log("PlayerHealth.Health = " + PlayerHealth.Health);
+            LoadSkills(snapshot.PlayerSkills);
         }
 
         public void Save(GameSnapshotBase snapshot)

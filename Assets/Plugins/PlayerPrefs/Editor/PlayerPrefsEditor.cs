@@ -780,6 +780,7 @@ namespace Sabresaurus.PlayerPrefsExtensions
 
                     // Display the text (string) editor field and get any changes in value
                     string newValue = EditorGUILayout.TextField(initialValue, textFieldStyle);
+                    //string newValue = DrawDefaultValueTextArea(initialValue, textFieldStyle);
 
                     // If the value has changed
                     if (newValue != initialValue && !failedAutoDecrypt)
@@ -1243,6 +1244,34 @@ namespace Sabresaurus.PlayerPrefsExtensions
                 return EditorGUIUtility.isProSkin;
 #endif
             }
+        }
+
+        // PERSONAL ADDING
+        private string DrawDefaultValueTextArea(string text, GUIStyle textFieldStyle)
+        {
+            string value = "";
+            using (EditorGUI.ChangeCheckScope changeCheck = new EditorGUI.ChangeCheckScope())
+            {
+                value = EditorGUILayout.TextArea(text, textFieldStyle, GUILayout.Height(CalculateHeightForTextArea(text)));
+                if (changeCheck.changed)
+                {
+                    float newHeight = CalculateHeightForTextArea(text);
+                }
+            }
+            return value;
+        }
+
+        private float CalculateHeightForTextArea(string text)
+        {
+            string[] lines = text.Split('\n');
+            int numberOfLinesNeeded = 0;
+            foreach (string line in lines)
+            {
+                float lineLength = Mathf.Max(1f, line.Length);
+                numberOfLinesNeeded += Mathf.CeilToInt(lineLength * 8f / (position.width));
+            }
+            float height = numberOfLinesNeeded * EditorGUIUtility.singleLineHeight;
+            return height;
         }
     }
 }

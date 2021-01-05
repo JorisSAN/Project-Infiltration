@@ -41,9 +41,7 @@ public class LoadProcessor
             OnLoadDone(false);
             return;
         }
-        Debug.Log("Load data from savable !");
         _loadTarget.LoadDataFromSavable(gameSnapshot);
-        Debug.Log("_loadTarget : " + _loadTarget.PlayerHealth.MaxHealth + " " + _loadTarget.PlayerHealth.Health);
         OnLoadDone(true);
     }
 
