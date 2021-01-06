@@ -486,7 +486,7 @@ MonoBehaviour:
   _description: "Augmente votre discr\xE9tion de 20%"
   _levelRequirement: 0
   _extraRequirements: []
-  _icon: {fileID: 21300000, guid: eb02870fc5e0d904388833a75fc787d7, type: 3}
+  _icon: {fileID: 21300000, guid: 275b591243fe8dc49b4b8783d908954b, type: 3}
 --- !u!1 &29018645
 GameObject:
   m_ObjectHideFlags: 0
@@ -5012,7 +5012,7 @@ MonoBehaviour:
   _description: "Augmente votre discr\xE9tion de 10%"
   _levelRequirement: 0
   _extraRequirements: []
-  _icon: {fileID: 21300000, guid: 64b4061b1b03f364f8d26b31251928da, type: 3}
+  _icon: {fileID: 21300000, guid: 0b1287efe453c7149a52c30fc2ffa94e, type: 3}
 --- !u!1 &920169627
 GameObject:
   m_ObjectHideFlags: 0

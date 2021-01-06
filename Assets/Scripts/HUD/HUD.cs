@@ -26,10 +26,17 @@ namespace hud
             _discretionBar.SetDiscretion(_player.PlayerDiscretion.Discretion);
 
             /* Use skill */
-            if (Input.GetKeyDown(KeyCode.U))
+            if (Input.GetKeyDown(KeyCode.P))
             {
                 SelectSkill();
                 UseSkill();
+            }
+
+            /* Use object */
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                SelectObject();
+                UseObject();
             }
         }
 
@@ -92,6 +99,18 @@ namespace hud
         {
             _player.UseSkill();
             _inventory.UseSkill();
+        }
+
+        public void SelectObject()
+        {
+            _player.SelectObject();
+            _inventory.SelectObject(_player.PlayerObjectCollection.CurrentObject);
+        }
+
+        public void UseObject()
+        {
+            _player.UseObject();
+            _inventory.UseObject();
         }
     }
 }

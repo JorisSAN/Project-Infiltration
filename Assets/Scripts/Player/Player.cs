@@ -1,6 +1,7 @@
 ﻿using game.save;
 using game.save.snapshot;
 using player.inventory;
+using player.obj;
 using player.skill;
 using skilltree;
 using System.Collections;
@@ -16,6 +17,7 @@ namespace player
         public PlayerMoney PlayerMoney { get; private set; }
         public PlayerDiscretion PlayerDiscretion { get; private set; }
         public PlayerSkillCollection PlayerSkillCollection { get; private set; }
+        public PlayerObjectCollection PlayerObjectCollection { get; private set; }
         public PlayerInventory PlayerInventory { get; private set; }
 
         [SerializeField] private TopDownMovement _playerMovement = default;
@@ -52,6 +54,7 @@ namespace player
             PlayerMoney = new PlayerMoney();
             PlayerDiscretion = new PlayerDiscretion();
             PlayerSkillCollection = new PlayerSkillCollection();
+            PlayerObjectCollection = new PlayerObjectCollection();
             PlayerInventory = new PlayerInventory();
 
             PlayerMoney.Initialize();
@@ -120,6 +123,23 @@ namespace player
             PlayerSkillCollection.Load(skills);
         }
 
+        public void LoadObjects()
+        {
+            PlayerObjectCollection.Load();
+        }
+
+        public void SelectObject()
+        {
+            PlayerObjectCollection.SelectObject("Object_1"); // Just an example for the moment
+
+            PlayerInventory.SelectObject(PlayerObjectCollection.CurrentObject);
+        }
+
+        public void UseObject()
+        {
+            PlayerInventory.UseObject();
+        }
+
         public void SaveFromGameSaveManager()
         {
             GameSaveManager.Instance.Save();
@@ -133,6 +153,7 @@ namespace player
             //this.Initialize();
             PlayerHealth = snapshot.PlayerHealth;
             LoadSkills(snapshot.PlayerSkills);
+            LoadObjects();
         }
 
         public void Save(GameSnapshotBase snapshot)
