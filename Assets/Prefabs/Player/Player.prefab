@@ -599,8 +599,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6019901298782929519}
+  - component: {fileID: 1892746714138550498}
   - component: {fileID: 5890112217006523085}
   - component: {fileID: 2913486383123035323}
+  - component: {fileID: 8314804024932909000}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -620,10 +622,27 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6019901299608832524}
-  - {fileID: 6019901299630961753}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &1892746714138550498
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6019901298782929516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5890112217006523085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,7 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162c060d5eee9724db8946fb03c1c7f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerMovement: {fileID: 6019901299608832527}
+  _playerMovement: {fileID: 0}
 --- !u!114 &2913486383123035323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -651,6 +670,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animationEcranDeFumee: {fileID: 0}
   _animationTraverseMur: {fileID: 0}
+--- !u!114 &8314804024932909000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6019901298782929516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f81f588910cf534397334eb34acc58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1892746714138550498}
+  dissolveMaterials: []
+  speed: 6
+  turnSmoothTime: 0.1
 --- !u!1 &6019901298836007120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,8 +1421,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6019901299608832524}
-  - component: {fileID: 6019901299608832526}
-  - component: {fileID: 6019901299608832527}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
