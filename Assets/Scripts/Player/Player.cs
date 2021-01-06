@@ -1,5 +1,6 @@
 ﻿using game.save;
 using game.save.snapshot;
+using player.inventory;
 using player.skill;
 using skilltree;
 using System.Collections;
@@ -15,6 +16,7 @@ namespace player
         public PlayerMoney PlayerMoney { get; private set; }
         public PlayerDiscretion PlayerDiscretion { get; private set; }
         public PlayerSkillCollection PlayerSkillCollection { get; private set; }
+        public PlayerInventory PlayerInventory { get; private set; }
 
         [SerializeField] private TopDownMovement _playerMovement = default;
 
@@ -29,13 +31,6 @@ namespace player
 
         public void Update()
         {
-            /* Use skill */
-            if (Input.GetKeyDown(KeyCode.U))
-            {
-                SelectSkill();
-                UseSkill();
-            }
-
             /* Discretion update */
             bool isWalking = _playerMovement.IsWalking;
             bool isRunning = _playerMovement.IsRunning;
@@ -57,10 +52,11 @@ namespace player
             PlayerMoney = new PlayerMoney();
             PlayerDiscretion = new PlayerDiscretion();
             PlayerSkillCollection = new PlayerSkillCollection();
+            PlayerInventory = new PlayerInventory();
 
-            //PlayerHealth.Initialize();
             PlayerMoney.Initialize();
             PlayerDiscretion.Initialize();
+            PlayerInventory.Initialize();
 
             Initialized = true;
         }
@@ -109,12 +105,14 @@ namespace player
 
         public void SelectSkill()
         {
-            PlayerSkillCollection.SelectSkill("ecran_de_fumee"); // Just an example for the moment
+            PlayerSkillCollection.SelectSkill("1"); // Just an example for the moment
+
+            PlayerInventory.SelectSkill(PlayerSkillCollection.CurrentSkill);
         }
 
         public void UseSkill()
         {
-            PlayerSkillCollection.UseSkill();
+            PlayerInventory.UseSkill();
         }
 
         public void LoadSkills(List<SaveSkill> skills)

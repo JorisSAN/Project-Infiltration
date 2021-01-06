@@ -18,6 +18,7 @@ namespace player.skill
         {
             if (ContainSkill(skillUuid) && IsSkillUnlocked(skillUuid))
             {
+                Debug.Log("Skill " + skillUuid + " selected !");
                 CurrentSkill = GetSkill(skillUuid);
             }
         }
@@ -39,6 +40,11 @@ namespace player.skill
             return GetSkill(skillUuid).Unlocked;
         }
 
+        public bool IsSkillUsable(string skillUuid)
+        {
+            return GetSkill(skillUuid).Usable;
+        }
+
         public PlayerSkill GetSkill(string skillUuid)
         {
             foreach (PlayerSkill skill in _skills)
@@ -51,15 +57,6 @@ namespace player.skill
             return null;
         }
 
-        public void UseSkill()
-        {
-            PlayerSkill actualSelectedSkill = CurrentSkill;
-            if (!(actualSelectedSkill is null) && actualSelectedSkill.Usable)
-            {
-                SkillManager.Instance.UseSkill(actualSelectedSkill.Uuid);
-            }
-        }
-
         public void Load(List<SaveSkill> skillsSnapshot)
         {
             if (skillsSnapshot != null)
@@ -68,7 +65,7 @@ namespace player.skill
 
                 foreach (SaveSkill skill in skillsSnapshot)
                 {
-                    _skills.Add(new PlayerSkill(skill._uuid, skill._unlocked, skill._usable));
+                    _skills.Add(new PlayerSkill(skill._uuid, skill._unlocked, skill._usable, skill._icon));
                 }
             }
         }

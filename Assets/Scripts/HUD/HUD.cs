@@ -1,4 +1,5 @@
 ﻿using player;
+using player.skill;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace hud
         [SerializeField, NoNull] private HealthBar _healthBar = default;
         [SerializeField, NoNull] private MoneyContainer _moneyContainer = default;
         [SerializeField, NoNull] private DiscretionBar _discretionBar = default;
+        [SerializeField, NoNull] private Inventory _inventory = default;
 
         // METHODS
         public void Start()
@@ -22,6 +24,13 @@ namespace hud
         public void Update()
         {
             _discretionBar.SetDiscretion(_player.PlayerDiscretion.Discretion);
+
+            /* Use skill */
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                SelectSkill();
+                UseSkill();
+            }
         }
 
         public IEnumerator Initialize()
@@ -71,6 +80,18 @@ namespace hud
         {
             _player.DecreaseDiscretion(discretion);
             _discretionBar.SetDiscretion(_player.PlayerDiscretion.Discretion);
+        }
+
+        public void SelectSkill()
+        {
+            _player.SelectSkill();
+            _inventory.SelectSkill(_player.PlayerSkillCollection.CurrentSkill);
+        }
+
+        public void UseSkill()
+        {
+            _player.UseSkill();
+            _inventory.UseSkill();
         }
     }
 }
