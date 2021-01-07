@@ -20,6 +20,7 @@ namespace skilltree
 
 		[SerializeField] private RectTransform _rectTransform = default;
 		[SerializeField] private Text _content = default;
+		[SerializeField] private Image _image = default;
 
 		private Sprite _icon;
 
@@ -78,6 +79,26 @@ namespace skilltree
         {
 			//_button.image.sprite = icon;
 			_icon = icon;
+			_image.sprite = _icon;
+
+			if (_icon != null)
+            {
+				HideText();
+            }
+			else
+            {
+				ShowText();
+            }
         }
+
+		public void ShowText()
+        {
+			_content.gameObject.SetActive(true);
+        }
+
+		public void HideText()
+		{
+			_content.gameObject.SetActive(false);
+		}
 	}
 }
