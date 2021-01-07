@@ -1,4 +1,4 @@
-﻿using player.obj;
+﻿using player.item;
 using player.skill;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,12 +9,12 @@ namespace player.inventory
     public class PlayerInventory
     {
         private SkillSlot _skillSlot;
-        private ObjectSlot _objectSlot;
+        private ItemSlot _itemSlot;
 
         public void Initialize()
         {
             _skillSlot = new SkillSlot();
-            _objectSlot = new ObjectSlot();
+            _itemSlot = new ItemSlot();
         }
 
         public void SelectSkill(PlayerSkill skill)
@@ -27,14 +27,14 @@ namespace player.inventory
             _skillSlot.Use();
         }
 
-        public void SelectObject(PlayerObject obj)
+        public void SelectItem(PlayerItem item)
         {
-            _objectSlot.LoadObject(obj);
+            _itemSlot.LoadObject(item);
         }
 
-        public void UseObject()
+        public void UseItem()
         {
-            _objectSlot.Use();
+            _itemSlot.Use();
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using game.save;
 using game.save.snapshot;
 using player.inventory;
-using player.obj;
+using player.item;
 using player.skill;
 using skilltree;
 using System.Collections;
@@ -17,7 +17,7 @@ namespace player
         public PlayerMoney PlayerMoney { get; private set; }
         public PlayerDiscretion PlayerDiscretion { get; private set; }
         public PlayerSkillCollection PlayerSkillCollection { get; private set; }
-        public PlayerObjectCollection PlayerObjectCollection { get; private set; }
+        public PlayerItemCollection PlayerItemCollection { get; private set; }
         public PlayerInventory PlayerInventory { get; private set; }
 
         [SerializeField] private TopDownMovement _playerMovement = default;
@@ -54,7 +54,7 @@ namespace player
             PlayerMoney = new PlayerMoney();
             PlayerDiscretion = new PlayerDiscretion();
             PlayerSkillCollection = new PlayerSkillCollection();
-            PlayerObjectCollection = new PlayerObjectCollection();
+            PlayerItemCollection = new PlayerItemCollection();
             PlayerInventory = new PlayerInventory();
 
             PlayerMoney.Initialize();
@@ -123,21 +123,21 @@ namespace player
             PlayerSkillCollection.Load(skills);
         }
 
-        public void LoadObjects()
+        public void LoadItems()
         {
-            PlayerObjectCollection.Load();
+            PlayerItemCollection.Load();
         }
 
-        public void SelectObject()
+        public void SelectItem()
         {
-            PlayerObjectCollection.SelectObject("Object_1"); // Just an example for the moment
+            PlayerItemCollection.SelectItem("Item_1"); // Just an example for the moment
 
-            PlayerInventory.SelectObject(PlayerObjectCollection.CurrentObject);
+            PlayerInventory.SelectItem(PlayerItemCollection.CurrentItem);
         }
 
-        public void UseObject()
+        public void UseItem()
         {
-            PlayerInventory.UseObject();
+            PlayerInventory.UseItem();
         }
 
         public void SaveFromGameSaveManager()
@@ -153,7 +153,7 @@ namespace player
             //this.Initialize();
             PlayerHealth = snapshot.PlayerHealth;
             LoadSkills(snapshot.PlayerSkills);
-            LoadObjects();
+            LoadItems();
         }
 
         public void Save(GameSnapshotBase snapshot)

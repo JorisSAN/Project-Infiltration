@@ -103,14 +103,14 @@ namespace hud
 
         public void SelectObject()
         {
-            _player.SelectObject();
-            _inventory.SelectObject(_player.PlayerObjectCollection.CurrentObject);
+            _player.SelectItem();
+            _inventory.SelectItem(_player.PlayerItemCollection.CurrentItem);
         }
 
         public void UseObject()
         {
-            _player.UseObject();
-            _inventory.UseObject();
+            _player.UseItem();
+            _inventory.UseItem();
         }
     }
 }

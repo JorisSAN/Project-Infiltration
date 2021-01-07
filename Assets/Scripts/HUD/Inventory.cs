@@ -1,4 +1,4 @@
-﻿using player.obj;
+﻿using player.item;
 using player.skill;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ namespace hud
     public class Inventory : MonoBehaviour
     {
         [SerializeField] private Slot _skillSlot = default;
-        [SerializeField] private Slot _objectSlot = default;
+        [SerializeField] private Slot _itemSlot = default;
 
         public void SelectSkill(PlayerSkill skill)
         {
@@ -26,17 +26,17 @@ namespace hud
             // Start timer for the next possible use
         }
 
-        public void SelectObject(PlayerObject obj)
+        public void SelectItem(PlayerItem item)
         {
-            if (obj is null)
+            if (item is null)
             {
-                _objectSlot.LoadImage(null);
+                _itemSlot.LoadImage(null);
                 return;
             }
-            _objectSlot.LoadImage(obj.Icon);
+            _itemSlot.LoadImage(item.Icon);
         }
 
-        public void UseObject()
+        public void UseItem()
         {
             // Start timer for the next possible use
         }

@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace player.obj
+namespace player.item
 {
-    public class PlayerObject
+    public class PlayerItem
     {
         public string Uuid { get; }
 
@@ -13,13 +13,13 @@ namespace player.obj
 
         public Sprite Icon { get; }
 
-        public PlayerObject(string uuid, bool unlocked)
+        public PlayerItem(string uuid, bool unlocked)
         {
             Uuid = uuid;
             Unlocked = unlocked;
         }
 
-        public PlayerObject(string uuid, bool unlocked, string iconName)
+        public PlayerItem(string uuid, bool unlocked, string iconName)
         {
             Uuid = uuid;
             Unlocked = unlocked;
