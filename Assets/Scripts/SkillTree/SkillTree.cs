@@ -303,11 +303,18 @@ namespace skilltree
 
 			foreach (Skill s in GetSkills())
 			{
+				string skillName = "";
+				if (s.Icon != null)
+				{
+					skillName = s.Icon.name;
+
+				}
 				skills.Add(new SaveSkill
 				{
 					_uuid = s.Uuid,
 					_unlocked = s.Unlocked,
-					_usable = s.Usable
+					_usable = s.Usable,
+					_icon = skillName
 				});
 			}
 

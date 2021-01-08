@@ -31,6 +31,11 @@ namespace player.skill
                     Debug.Log("Traverse mur !");
                     //_animationTraverseMur.Play();
                     break;
+                case "1":
+                    // Animation du pouvoir traverse mur
+                    Debug.Log("1");
+                    //_animationTraverseMur.Play();
+                    break;
             }
         }
     }
