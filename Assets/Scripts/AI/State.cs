@@ -23,9 +23,7 @@ public class State
     protected State nextState;
     protected NavMeshAgent agent;
 
-    float visDist = 30.0f;
-    float visAngle = 30.0f;
-    float shootDist = 7.0f;
+    float shootDist = 2.0f;
 
 
     public State(GameObject _npc,NavMeshAgent _agent, Transform _player)
@@ -53,15 +51,10 @@ public class State
         }
         return this;
     }
-    public bool CanSeePlayer()
+    public bool CanSeePlayer(GameObject npc)
     {
-        Vector3 direction = player.position - npc.transform.position;
-        float angle = Vector3.Angle(direction, npc.transform.forward);
-        if (direction.magnitude <visDist && angle < visAngle)
-        {
-            return true;
-        }
-        return false;
+        return npc.GetComponent<FieldOfView>().playerSeen;
+
     }
 
     public bool CanAttackPlayer()
@@ -92,7 +85,7 @@ public class Idle : State
 
     public override void Update()
     {
-        if (CanSeePlayer())
+        if (CanSeePlayer(npc))
         {
             nextState = new Pursue(npc, agent, player);
             stage = EVENT.EXIT;
@@ -155,7 +148,7 @@ public class Patrol : State
 
             agent.SetDestination(checkpoints[currentIndex].transform.position);
         }
-        if (CanSeePlayer())
+        if (CanSeePlayer(npc))
         {
             nextState = new Pursue(npc, agent, player);
             stage = EVENT.EXIT;
@@ -198,7 +191,7 @@ public class Pursue : State
                 stage = EVENT.EXIT;
 
             }
-            else if (!CanSeePlayer())
+            else if (!CanSeePlayer(npc))
             {
                 nextState = new Search(npc, agent, player);
                 stage= EVENT.EXIT;
@@ -236,7 +229,7 @@ public class Attack : State
         npc.transform.rotation = Quaternion.Slerp(npc.transform.rotation,
             Quaternion.LookRotation(direction),
             Time.deltaTime * rotationSpeed);
-        if (!CanSeePlayer())
+        if (!CanSeePlayer(npc))
         {
             nextState = new Search(npc, agent, player);
             stage = EVENT.EXIT;
@@ -281,8 +274,8 @@ public class Search : State
 
     public override void Update()
     {
-        agent.SetDestination(player.position);
-        if (CanSeePlayer())
+        agent.SetDestination(lastPosition);
+        if (CanSeePlayer(npc))
         {
             nextState = new Pursue(npc, agent, player);
             stage = EVENT.EXIT;
