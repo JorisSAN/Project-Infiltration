@@ -16,7 +16,6 @@ namespace itemshop.editor
 		private GUIStyle _textStyle; // Style used for title in upper left
 		private Vector2 _mousePos; // Local screen mouse position
 		private Vector2 _mousePosGlobal; // Global mouse position based on camera offsets
-		private bool _isTransition; // Are we in transistion mode
 		private ItemCollection[] _collect = new ItemCollection[0];
 
 		private float SIDE_BAR_WIDTH = 240f; // Size of the sidebar
@@ -127,7 +126,7 @@ namespace itemshop.editor
 				{
 
 					// Context menu
-					if (e.button == 1 && !_isTransition) // RIGHT CLIC
+					if (e.button == 1) // RIGHT CLIC
 					{
 						if (e.type == EventType.MouseDown)
 						{

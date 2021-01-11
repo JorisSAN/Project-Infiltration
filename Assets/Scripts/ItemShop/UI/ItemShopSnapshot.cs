@@ -17,17 +17,30 @@ namespace itemshop.ui
 
 		public void SaveSnapshot()
 		{
-			Debug.Log("Save shop 1");
 			_snapshot = _menu._itemShop.GetSnapshot();
 			SaveFromGameSaveManager();
 
 			// Load items to player
 			if (_player != null)
             {
-				_player.LoadItems(_snapshot._items);
+				_player.LoadItems(RetrieveItemsUnlocked());
 				_player.UpdateMoney(_snapshot._playerMoney);
 			}
 		}
+
+		public List<SaveItem> RetrieveItemsUnlocked()
+        {
+			List<SaveItem> items = new List<SaveItem>();
+			foreach (SaveItem item in _snapshot._items)
+            {
+				if (item._unlocked)
+                {
+					items.Add(item);
+                }
+            }
+
+			return items;
+        }
 
 		public void LoadSnapshot()
 		{
@@ -62,10 +75,9 @@ namespace itemshop.ui
 
 		public void Save(GameSnapshotBase snapshot)
 		{
-			Debug.Log("Save shop");
 			GameSnapshot gameSnapshot = ((GameSnapshot)snapshot);
 			gameSnapshot.ItemShop = _snapshot;
-			gameSnapshot.PlayerItems = _snapshot._items;
+			gameSnapshot.PlayerItems = RetrieveItemsUnlocked();
 		}
 	}
 }

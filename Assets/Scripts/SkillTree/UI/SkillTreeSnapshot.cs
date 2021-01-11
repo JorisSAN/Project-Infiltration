@@ -19,7 +19,24 @@ namespace skilltree
 			SaveFromGameSaveManager();
 
 			// Load skills to player
-			_player.LoadSkills(_snapshot._skills);
+			if (_player != null)
+            {
+				_player.LoadSkills(RetrieveSkillsUnlocked());
+			}
+		}
+
+		public List<SaveSkill> RetrieveSkillsUnlocked()
+		{
+			List<SaveSkill> skills = new List<SaveSkill>();
+			foreach (SaveSkill skill in _snapshot._skills)
+			{
+				if (skill._unlocked)
+				{
+					skills.Add(skill);
+				}
+			}
+
+			return skills;
 		}
 
 		public void LoadSnapshot()
@@ -57,7 +74,7 @@ namespace skilltree
         {
 			GameSnapshot gameSnapshot = ((GameSnapshot)snapshot);
 			gameSnapshot.SkillTree = _snapshot;
-			gameSnapshot.PlayerSkills = _snapshot._skills;
+			gameSnapshot.PlayerSkills = RetrieveSkillsUnlocked();
 		}
     }
 }
