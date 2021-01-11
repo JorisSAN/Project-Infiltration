@@ -79,7 +79,7 @@ namespace itemshop
             Dictionary<Transform, bool> blacklist = new Dictionary<Transform, bool>();
             foreach (Transform child in transform)
             {
-                foreach (ItemCollection childNode in child.GetComponent<ItemCollection>().ChildSkills)
+                foreach (ItemCollection childNode in child.GetComponent<ItemCollection>().ChildItems)
                 {
                     blacklist[childNode.transform] = true;
                 }

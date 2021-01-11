@@ -1,5 +1,6 @@
 ﻿using game.save;
 using game.save.snapshot;
+using itemshop.save;
 using player.inventory;
 using player.item;
 using player.skill;
@@ -96,6 +97,15 @@ namespace player
             PlayerMoney.RemoveMoney(money);
         }
 
+        public void UpdateMoney(int money)
+        {
+            if (money < 0)
+            {
+                money = 0;
+            }
+            PlayerMoney.UpdateMoney(money);
+        }
+
         public void IncreaseDiscretion(int discretion)
         {
             PlayerDiscretion.AddDiscretion(discretion);
@@ -123,9 +133,9 @@ namespace player
             PlayerSkillCollection.Load(skills);
         }
 
-        public void LoadItems()
+        public void LoadItems(List<SaveItem> items)
         {
-            PlayerItemCollection.Load();
+            PlayerItemCollection.Load(items);
         }
 
         public void SelectItem()
@@ -153,7 +163,7 @@ namespace player
             //this.Initialize();
             PlayerHealth = snapshot.PlayerHealth;
             LoadSkills(snapshot.PlayerSkills);
-            LoadItems();
+            LoadItems(snapshot.PlayerItems);
         }
 
         public void Save(GameSnapshotBase snapshot)

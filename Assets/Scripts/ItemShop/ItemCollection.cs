@@ -46,7 +46,7 @@ namespace itemshop
 			}
 		}
 
-		public List<ItemCollection> ChildSkills
+		public List<ItemCollection> ChildItems
 		{
 			get
 			{
@@ -102,6 +102,14 @@ namespace itemshop
 			}
 		}
 
+		public ItemShop ItemShop
+        {
+			get
+            {
+				return transform.parent.parent.GetComponent<ItemShop>();
+			}
+        }
+
 		// METHODS
 
 		/// <summary>
@@ -125,6 +133,13 @@ namespace itemshop
 			return transform.GetChild(index).GetComponent<Item>();
 		}
 
+		public Item[] GetAllItems()
+        {
+			Item[] itemsArray = transform.GetComponentsInChildren<Item>();
+
+			return itemsArray;
+        }
+
 		/// <summary>
 		/// Add an item collection to the itemChilds list
 		/// </summary>
@@ -140,7 +155,7 @@ namespace itemshop
 		/// </summary>
 		public void UnlockItem()
 		{
-			ItemShop itemShop = transform.parent.parent.GetComponent<ItemShop>();
+			ItemShop itemShop = ItemShop;
 
 			if (itemShop.PlayerMoney <= 0) return;
 

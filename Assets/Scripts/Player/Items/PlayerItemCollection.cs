@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using itemshop.save;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -51,12 +52,17 @@ namespace player.item
             return null;
         }
 
-        public void Load()
+        public void Load(List<SaveItem> itemsSnapshot)
         {
-            // Fake load for the moment
-            Debug.Log("Load items !");
-            _items.Add(new PlayerItem("Item_1", true, "pistol-gun"));
-            _items.Add(new PlayerItem("Item_2", false, "crossbow"));
+            if (itemsSnapshot != null)
+            {
+                _items = new List<PlayerItem>(itemsSnapshot.Count);
+
+                foreach (SaveItem item in itemsSnapshot)
+                {
+                    _items.Add(new PlayerItem(item._uuid, item._unlocked, item._cost, item._icon, item._rarity));
+                }
+            }
         }
     }
 }

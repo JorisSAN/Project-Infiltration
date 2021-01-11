@@ -8,8 +8,8 @@ namespace hud
 {
     public class Inventory : MonoBehaviour
     {
-        [SerializeField] private Slot _skillSlot = default;
-        [SerializeField] private Slot _itemSlot = default;
+        [SerializeField] private HudSlot _skillSlot = default;
+        [SerializeField] private HudSlot _itemSlot = default;
 
         public void SelectSkill(PlayerSkill skill)
         {

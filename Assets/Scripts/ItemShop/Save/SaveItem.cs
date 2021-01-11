@@ -10,5 +10,6 @@ namespace itemshop.save
         public bool _unlocked;
         public int _cost;
         public string _icon;
+        public Rarity _rarity;
     }
 }

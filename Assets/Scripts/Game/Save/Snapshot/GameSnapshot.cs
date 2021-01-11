@@ -1,4 +1,5 @@
-﻿using player;
+﻿using itemshop.save;
+using player;
 using skilltree;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,11 +24,23 @@ namespace game.save.snapshot
             get; set;
         }
 
+        public SaveItemShop ItemShop
+        {
+            get; set;
+        }
+
+        public List<SaveItem> PlayerItems
+        {
+            get; set;
+        }
+
         public override void ClearSnapshot()
         {
             PlayerHealth = new PlayerHealth();
             SkillTree = new SaveSkillTree();
             PlayerSkills = new List<SaveSkill>();
+            ItemShop = new SaveItemShop();
+            PlayerItems = new List<SaveItem>();
         }
 
         public void LoadDataFromSavable(SavableGameSnapshot savableSnapshot)
@@ -35,6 +48,8 @@ namespace game.save.snapshot
             PlayerHealth = savableSnapshot.PlayerHealth;
             SkillTree = savableSnapshot.SkillTree;
             PlayerSkills = savableSnapshot.PlayerSkills;
+            ItemShop = savableSnapshot.ItemShop;
+            PlayerItems = savableSnapshot.PlayerItems;
         }
     }
 }

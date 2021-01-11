@@ -11,7 +11,7 @@ namespace carousel
     [Serializable]
     public class Slot<TDisplayer, UInfo> : MonoBehaviour where TDisplayer : ASlotListElementDisplayer<UInfo>
     {
-        [SerializeField] private RectTransform _slotTransform;
+        [SerializeField] private RectTransform _slotTransform = default;
         public List<TDisplayer> Displayer;
         [SerializeField, Curve(0, 1, 0, 1)] private AnimationCurve _ease = ExtAnimationCurve.GetDefaultCurve(ExtAnimationCurve.EaseType.EASE_IN_OUT);
         public bool isAnimating;

@@ -27,7 +27,6 @@ namespace itemshop
 		[SerializeField] private Rarity _rarity = default;
 
 		[SerializeField] private Sprite _icon = default;
-		[SerializeField] private Rect _windowRect = default;
 
 		private ItemCategory _category;
 		private ItemCollection _collection;
@@ -94,18 +93,6 @@ namespace itemshop
 			}
 		}
 
-		public Rect WindowRect
-		{
-			get
-			{
-				return _windowRect;
-			}
-			set
-			{
-				_windowRect = value;
-			}
-		}
-
 		public ItemCategory Category
 		{
 			get
@@ -155,24 +142,29 @@ namespace itemshop
 		// METHODS
 
 		/// <summary>
-		/// Set the x and y coords of the windows rect
+		/// Visual print out of requirements
 		/// </summary>
-		/// <param name="x">coord x</param>
-		/// <param name="y">coord y</param>
-		public void SetWindowRectPos(float x, float y)
+		/// <returns>The requirements.</returns>
+		public string GetRequirements()
 		{
-			_windowRect.x = x;
-			_windowRect.y = y;
+			string requirements = "";
+			ItemCategory category = transform.parent.parent.GetComponent<ItemCategory>();
+
+			if (_levelRequirement > 0)
+				requirements += string.Format("* {0} Skill Lv {1} \n", category.displayName, _levelRequirement);
+
+
+			return requirements;
 		}
 
 		/// <summary>
-		/// Loops through all requirements to check if this skill is available for purchase
+		/// Loops through all requirements to check if this item is available for purchase
 		/// </summary>
 		/// <returns><c>true</c> if this instance is requirements; otherwise, <c>false</c>.</returns>
 		public bool IsAvailable()
 		{
 			int level = 0;
-			int playerMoney = 0;
+			int playerMoney = Shop.PlayerMoney;
 			return (level >= LevelRequirement) && (playerMoney >= _cost);
 		}
 	}

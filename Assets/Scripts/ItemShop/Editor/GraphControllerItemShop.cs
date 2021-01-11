@@ -220,7 +220,7 @@ namespace itemshop.editor
 				{
 					_collect[i].WindowRect = GUI.Window(i, _collect[i].WindowRect, DrawNodeWindow, _collect[i].displayName);
 
-					foreach (ItemCollection child in _collect[i].ChildSkills)
+					foreach (ItemCollection child in _collect[i].ChildItems)
 					{
 						DrawLineBottomToTop(_collect[i].WindowRect, child.WindowRect);
 					}
@@ -388,7 +388,7 @@ namespace itemshop.editor
 				// Clean out all references to our item collection
 				foreach (ItemCollection node in collect)
 				{
-					node.ChildSkills.Remove(t);
+					node.ChildItems.Remove(t);
 				}
 
 				DestroyImmediate(t.gameObject);

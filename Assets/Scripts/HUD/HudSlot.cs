@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace hud
 {
-    public class Slot : MonoBehaviour
+    public class HudSlot : MonoBehaviour
     {
         [SerializeField] private Image _slotIcon = default;
 

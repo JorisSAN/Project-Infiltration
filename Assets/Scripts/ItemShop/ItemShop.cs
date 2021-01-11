@@ -113,7 +113,7 @@ namespace itemshop
 			{
 				foreach (ItemCollection parent in category.GetComponentsInChildren<ItemCollection>())
 				{
-					foreach (ItemCollection child in parent.ChildSkills)
+					foreach (ItemCollection child in parent.ChildItems)
 					{
 						if (!childParents.ContainsKey(child))
 						{
@@ -283,7 +283,8 @@ namespace itemshop
 					_uuid = i.Uuid,
 					_unlocked = i.Unlocked,
 					_cost = i.Cost,
-					_icon = itemName
+					_icon = itemName,
+					_rarity = i.Rarity
 				});
 			}
 

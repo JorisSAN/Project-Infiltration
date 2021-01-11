@@ -4,7 +4,7 @@ namespace carousel
 {
     public abstract class ASlotListElementDisplayer<T> : ACarouselElementDisplayer<T>
     {
-        [SerializeField] private CanvasGroup _canvasGroup;
+        [SerializeField] private CanvasGroup _canvasGroup = default;
 
         public void SetDisplayerAlpha(float alpha)
         {

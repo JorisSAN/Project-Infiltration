@@ -32,5 +32,14 @@ namespace player
                 Money = 0;
             }
         }
+
+        public void UpdateMoney(int money)
+        {
+            if (money < 0)
+            {
+                money = 0;
+            }
+            Money = money;
+        }
     }
 }
