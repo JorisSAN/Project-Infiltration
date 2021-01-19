@@ -17,12 +17,12 @@ namespace player.item
         {
             switch (itemUuid)
             {
-                case "Item_1":
-                    Debug.Log("Item 1 !");
+                case "ProPistol":
+                    Debug.Log("ProPistol !");
                     break;
 
-                case "Item_2":
-                    Debug.Log("Item 2 !");
+                case "Crossbow":
+                    Debug.Log("Crossbow !");
                     break;
             }
         }

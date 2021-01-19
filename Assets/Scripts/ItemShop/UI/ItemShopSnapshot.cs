@@ -12,11 +12,13 @@ namespace itemshop.ui
 	public class ItemShopSnapshot : MonoBehaviour, IGameSaveDataHolder
 	{
 		private SaveItemShop _snapshot;
+		private bool _wantToSave = false;
 		[SerializeField] private ItemShopMenu _menu = default;
 		[SerializeField] private Player _player = default;
 
 		public void SaveSnapshot()
 		{
+			_wantToSave = true;
 			_snapshot = _menu._itemShop.GetSnapshot();
 			SaveFromGameSaveManager();
 
@@ -79,9 +81,12 @@ namespace itemshop.ui
 
 		public void Save(GameSnapshotBase snapshot)
 		{
-			GameSnapshot gameSnapshot = ((GameSnapshot)snapshot);
-			gameSnapshot.ItemShop = _snapshot;
-			gameSnapshot.PlayerItems = RetrieveItemsUnlocked();
+			if (_wantToSave)
+            {
+				GameSnapshot gameSnapshot = ((GameSnapshot)snapshot);
+				gameSnapshot.ItemShop = _snapshot;
+				gameSnapshot.PlayerItems = RetrieveItemsUnlocked();
+			}
 		}
 	}
 }

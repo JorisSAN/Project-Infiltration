@@ -293,23 +293,30 @@ namespace itemshop
 
 			foreach (ItemCollection col in collections)
 			{
-				Item i = col.Item;
+				Item i = col.LastBoughtItem;
+				if (col.Item.Unlocked)
+                {
+					i = col.Item;
+                }
 
-				string itemName = "";
-				if (i.Icon != null)
-				{
-					itemName = i.Icon.name;
+				if (i != null)
+                {
+					string itemName = "";
+					if (i.Icon != null)
+					{
+						itemName = i.Icon.name;
 
+					}
+
+					playerItems.Add(new SaveItem
+					{
+						_uuid = i.Uuid,
+						_unlocked = i.Unlocked,
+						_cost = i.Cost,
+						_icon = itemName,
+						_rarity = i.Rarity
+					});
 				}
-
-				playerItems.Add(new SaveItem
-				{
-					_uuid = i.Uuid,
-					_unlocked = i.Unlocked,
-					_cost = i.Cost,
-					_icon = itemName,
-					_rarity = i.Rarity
-				});
 			}
 
 			foreach (ItemCollection col in collections)
@@ -334,6 +341,7 @@ namespace itemshop
 			{
 				_playerMoney = this._playerMoney,
 				_items = items,
+				_playerItems = playerItems,
 				_collections = itemCollections,
 				_categories = itemsCategories
 			};

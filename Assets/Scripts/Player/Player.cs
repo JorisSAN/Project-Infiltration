@@ -136,11 +136,16 @@ namespace player
         public void LoadItems(List<SaveItem> items)
         {
             PlayerItemCollection.Load(items);
+
+            if (items != null)
+            {
+                Debug.Log(items.Count);
+            }
         }
 
-        public void SelectItem()
+        public void SelectItem(string itemUuid)
         {
-            PlayerItemCollection.SelectItem("Item_1"); // Just an example for the moment
+            PlayerItemCollection.SelectItem(itemUuid);
 
             PlayerInventory.SelectItem(PlayerItemCollection.CurrentItem);
         }

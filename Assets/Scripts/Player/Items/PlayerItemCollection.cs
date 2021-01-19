@@ -14,6 +14,14 @@ namespace player.item
             get; set;
         }
 
+        public List<PlayerItem> Items
+        {
+            get
+            {
+                return _items;
+            }
+        }
+
         public void SelectItem(string itemUuid)
         {
             if (ContainItem(itemUuid) && IsItemUnlocked(itemUuid))

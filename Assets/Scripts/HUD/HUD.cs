@@ -1,4 +1,5 @@
-﻿using player;
+﻿using hud.itemwheel;
+using player;
 using player.skill;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace hud
         [SerializeField, NoNull] private MoneyContainer _moneyContainer = default;
         [SerializeField, NoNull] private DiscretionBar _discretionBar = default;
         [SerializeField, NoNull] private Inventory _inventory = default;
+        [SerializeField, NoNull] private ItemWheel _itemWheel = default;
 
         // METHODS
         public void Start()
@@ -32,11 +34,22 @@ namespace hud
                 UseSkill();
             }
 
-            /* Use object */
+            /* Use item */
             if (Input.GetKeyDown(KeyCode.O))
             {
-                SelectObject();
-                UseObject();
+                UseItem();
+            }
+
+            /* Show wheel */
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                _itemWheel.Show();
+            }
+
+            /* Hide wheel */
+            if (Input.GetKeyUp(KeyCode.W))
+            {
+                _itemWheel.Hide();
             }
         }
 
@@ -51,6 +64,8 @@ namespace hud
 
             _discretionBar.SetMaxDiscretion(_player.PlayerDiscretion.DiscretionMax);
             _discretionBar.SetDiscretion(_player.PlayerDiscretion.Discretion);
+
+            _itemWheel.LoadWheel(_player.PlayerItemCollection.Items);
         }
 
         public void AddHealth(int health)
@@ -101,13 +116,13 @@ namespace hud
             _inventory.UseSkill();
         }
 
-        public void SelectObject()
+        public void SelectItem(string itemUuid)
         {
-            _player.SelectItem();
+            _player.SelectItem(itemUuid);
             _inventory.SelectItem(_player.PlayerItemCollection.CurrentItem);
         }
 
-        public void UseObject()
+        public void UseItem()
         {
             _player.UseItem();
             _inventory.UseItem();

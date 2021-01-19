@@ -10,11 +10,13 @@ namespace skilltree
 	public class SkillTreeSnapshot : MonoBehaviour, IGameSaveDataHolder
 	{
 		private SaveSkillTree _snapshot;
+		private bool _wantToSave = false;
 		[SerializeField] private SkillMenu _menu = default;
 		[SerializeField] private Player _player = default;
 
 		public void SaveSnapshot()
 		{
+			_wantToSave = true;
 			_snapshot = _menu._skillTree.GetSnapshot();
 			SaveFromGameSaveManager();
 
@@ -72,9 +74,12 @@ namespace skilltree
 
         public void Save(GameSnapshotBase snapshot)
         {
-			GameSnapshot gameSnapshot = ((GameSnapshot)snapshot);
-			gameSnapshot.SkillTree = _snapshot;
-			gameSnapshot.PlayerSkills = RetrieveSkillsUnlocked();
+			if (_wantToSave)
+            {
+				GameSnapshot gameSnapshot = ((GameSnapshot)snapshot);
+				gameSnapshot.SkillTree = _snapshot;
+				gameSnapshot.PlayerSkills = RetrieveSkillsUnlocked();
+			}
 		}
     }
 }

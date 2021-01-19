@@ -84,6 +84,19 @@ namespace itemshop
 			}
 		}
 
+		// Returns the last bought item
+		public Item LastBoughtItem
+		{
+			get
+			{
+				if ((_currentItem - 1) >= 0 && (_currentItem - 1) < ItemCount)
+                {
+					return transform.GetChild(_currentItem - 1).GetComponent<Item>();
+				}
+				return null;
+			}
+		}
+
 		public string Uuid
 		{
 			get
