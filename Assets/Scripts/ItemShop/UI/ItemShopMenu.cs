@@ -96,8 +96,8 @@ namespace intemshop.ui
 			foreach (ItemCollection col in _collections)
             {
 				Item item = col.Item;
-				if (!item.Unlocked)
-				{
+				//if (!item.Unlocked)
+				//{
 					_infos.Add(new ItemInfo
 					{
 						Uuid = item.Uuid,
@@ -108,7 +108,7 @@ namespace intemshop.ui
 						ActionWhenClicked = ShowNodeDetails,
 						Collection = col
 					});
-				}
+				//}
 			}
 
 			_carouselFiller.FillCarouselWithViews(_infos.ToArray());
@@ -127,8 +127,8 @@ namespace intemshop.ui
 			foreach (ItemCollection col in _collections)
 			{
 				Item item = col.Item;
-				if (!item.Unlocked)
-                {
+				//if (!item.Unlocked)
+                //{
 					_infos.Add(new ItemInfo
 					{
 						Uuid = item.Uuid,
@@ -139,7 +139,7 @@ namespace intemshop.ui
 						ActionWhenClicked = ShowNodeDetails,
 						Collection = col
 					});
-				}
+				//}
 			}
 
 			_carouselFiller.FillCarouselWithViews(_infos.ToArray());

@@ -29,7 +29,7 @@ public class CrossWall : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayDistance, layerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
-            Debug.Log("Did Hit");
+            //Debug.Log("Did Hit");
 
             target.transform.position = transform.position + ((transform.TransformDirection(Vector3.forward) * hit.distance) + transform.TransformDirection(Vector3.forward));
 
@@ -50,7 +50,7 @@ public class CrossWall : MonoBehaviour
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * rayDistance, Color.green);
-            Debug.Log("Did not Hit");
+            //Debug.Log("Did not Hit");
             target.SetActive(false);
         }
     }

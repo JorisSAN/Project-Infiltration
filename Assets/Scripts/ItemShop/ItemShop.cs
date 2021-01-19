@@ -267,6 +267,7 @@ namespace itemshop
 		virtual public SaveItemShop GetSnapshot()
 		{
 			List<SaveItem> items = new List<SaveItem>();
+			List<SaveItem> playerItems = new List<SaveItem>();
 			List<SaveItemCollection> itemCollections = new List<SaveItemCollection>();
 			List<SaveItemCategory> itemsCategories = new List<SaveItemCategory>();
 
@@ -288,21 +289,44 @@ namespace itemshop
 				});
 			}
 
-			foreach (ItemCollection s in GetItemCollections())
+			ItemCollection[] collections = GetItemCollections();
+
+			foreach (ItemCollection col in collections)
 			{
-				itemCollections.Add(new SaveItemCollection
+				Item i = col.Item;
+
+				string itemName = "";
+				if (i.Icon != null)
 				{
-					_uuid = s.Uuid,
-					_itemIndex = s.ItemIndex
+					itemName = i.Icon.name;
+
+				}
+
+				playerItems.Add(new SaveItem
+				{
+					_uuid = i.Uuid,
+					_unlocked = i.Unlocked,
+					_cost = i.Cost,
+					_icon = itemName,
+					_rarity = i.Rarity
 				});
 			}
 
-			foreach (ItemCategory s in GetCategories())
+			foreach (ItemCollection col in collections)
+			{
+				itemCollections.Add(new SaveItemCollection
+				{
+					_uuid = col.Uuid,
+					_itemIndex = col.ItemIndex
+				});
+			}
+
+			foreach (ItemCategory cat in GetCategories())
 			{
 				itemsCategories.Add(new SaveItemCategory
 				{
-					_uuid = s.Uuid,
-					_itemLevel = s.ItemLevel
+					_uuid = cat.Uuid,
+					_itemLevel = cat.ItemLevel
 				});
 			}
 
@@ -310,6 +334,7 @@ namespace itemshop
 			{
 				_playerMoney = this._playerMoney,
 				_items = items,
+				_collections = itemCollections,
 				_categories = itemsCategories
 			};
 		}

@@ -30,6 +30,7 @@ namespace itemshop.ui
 
 		public List<SaveItem> RetrieveItemsUnlocked()
         {
+			/*
 			List<SaveItem> items = new List<SaveItem>();
 			foreach (SaveItem item in _snapshot._items)
             {
@@ -40,6 +41,9 @@ namespace itemshop.ui
             }
 
 			return items;
+			*/
+
+			return _snapshot._playerItems;
         }
 
 		public void LoadSnapshot()

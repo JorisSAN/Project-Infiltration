@@ -8,6 +8,7 @@ namespace itemshop.save
 	{
 		public int _playerMoney;
 		public List<SaveItem> _items;
+		public List<SaveItem> _playerItems;
 		public List<SaveItemCollection> _collections;
 		public List<SaveItemCategory> _categories;
 	}
