@@ -1,4 +1,4 @@
-﻿using hud.itemwheel;
+﻿using hud.selectionwheel;
 using player;
 using player.skill;
 using System.Collections;
@@ -16,6 +16,7 @@ namespace hud
         [SerializeField, NoNull] private DiscretionBar _discretionBar = default;
         [SerializeField, NoNull] private Inventory _inventory = default;
         [SerializeField, NoNull] private ItemWheel _itemWheel = default;
+        [SerializeField, NoNull] private SkillWheel _skillWheel = default;
 
         // METHODS
         public void Start()
@@ -30,7 +31,6 @@ namespace hud
             /* Use skill */
             if (Input.GetKeyDown(KeyCode.P))
             {
-                SelectSkill();
                 UseSkill();
             }
 
@@ -40,16 +40,28 @@ namespace hud
                 UseItem();
             }
 
-            /* Show wheel */
-            if (Input.GetKeyDown(KeyCode.W))
+            /* Show item wheel */
+            if (Input.GetKeyDown(KeyCode.L))
             {
                 _itemWheel.Show();
             }
 
-            /* Hide wheel */
-            if (Input.GetKeyUp(KeyCode.W))
+            /* Hide item wheel */
+            if (Input.GetKeyUp(KeyCode.L))
             {
                 _itemWheel.Hide();
+            }
+
+            /* Show skill wheel */
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                _skillWheel.Show();
+            }
+
+            /* Hide skill wheel */
+            if (Input.GetKeyUp(KeyCode.M))
+            {
+                _skillWheel.Hide();
             }
         }
 
@@ -66,6 +78,7 @@ namespace hud
             _discretionBar.SetDiscretion(_player.PlayerDiscretion.Discretion);
 
             _itemWheel.LoadWheel(_player.PlayerItemCollection.Items);
+            _skillWheel.LoadWheel(_player.PlayerSkillCollection.Skills);
         }
 
         public void AddHealth(int health)
@@ -104,9 +117,9 @@ namespace hud
             _discretionBar.SetDiscretion(_player.PlayerDiscretion.Discretion);
         }
 
-        public void SelectSkill()
+        public void SelectSkill(string skillUuid)
         {
-            _player.SelectSkill();
+            _player.SelectSkill(skillUuid);
             _inventory.SelectSkill(_player.PlayerSkillCollection.CurrentSkill);
         }
 

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -560,7 +560,7 @@ MonoBehaviour:
   _id: 2
   _uuid: 
   _unlocked: 0
-  _usable: 0
+  _usable: 1
   _description: "Augmente votre discr\xE9tion de 20%"
   _levelRequirement: 0
   _extraRequirements: []
@@ -7148,7 +7148,7 @@ MonoBehaviour:
   _id: 1
   _uuid: 
   _unlocked: 0
-  _usable: 0
+  _usable: 1
   _description: "Augmente votre discr\xE9tion de 10%"
   _levelRequirement: 0
   _extraRequirements: []
@@ -10692,7 +10692,7 @@ MonoBehaviour:
   _id: 7
   _uuid: 
   _unlocked: 0
-  _usable: 0
+  _usable: 1
   _description: Vous permez de jeter un cailloux pour faire diversion
   _levelRequirement: 2
   _extraRequirements: []

@@ -14,6 +14,14 @@ namespace player.skill
             get; set;
         }
 
+        public List<PlayerSkill> Skills
+        {
+            get
+            {
+                return _skills;
+            }
+        }
+
         public void SelectSkill(string skillUuid)
         {
             if (ContainSkill(skillUuid) && IsSkillUnlocked(skillUuid))

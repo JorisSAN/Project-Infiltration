@@ -1,21 +1,20 @@
-﻿using player.item;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace hud.itemwheel
+namespace hud.selectionwheel
 {
-    public class ItemWheel : MonoBehaviour
+    public abstract class SelectionWheel : MonoBehaviour
     {
-        private Vector2 _normalizedMousePosition;
-        private float _currentAngle;
-        private int _currentSelectedSlot = -1;
-        private int _previousSelectedSlot = -1;
+        protected Vector2 _normalizedMousePosition;
+        protected float _currentAngle;
+        protected int _currentSelectedSlot = -1;
+        protected int _previousSelectedSlot = -1;
 
-        [SerializeField] private ItemWheelSlot[] _slots = default;
-        [SerializeField] private Hud _hud = default;
+        [SerializeField] protected SelectionWheelSlot[] _slots = default;
+        [SerializeField] protected Hud _hud = default;
 
-        public ItemWheelSlot CurrentSlot
+        public SelectionWheelSlot CurrentSlot
         {
             get
             {
@@ -27,7 +26,7 @@ namespace hud.itemwheel
             }
         }
 
-        public ItemWheelSlot PreviousSlot
+        public SelectionWheelSlot PreviousSlot
         {
             get
             {
@@ -71,12 +70,11 @@ namespace hud.itemwheel
             /* Select item */
             if (Input.GetMouseButtonDown(0)) // LEFT CLIC
             {
-                if (CurrentSlot != null && CurrentSlot.PlayerItem != null)
-                {
-                    _hud.SelectItem(CurrentSlot.PlayerItem.Uuid);
-                }
+                SelectSlot();
             }
         }
+
+        public abstract void SelectSlot();
 
         public void Show()
         {
@@ -86,24 +84,6 @@ namespace hud.itemwheel
         public void Hide()
         {
             this.gameObject.SetActive(false);
-        }
-
-        public void LoadWheel(List<PlayerItem> items)
-        {
-            int index = 0;
-            foreach (PlayerItem item in items)
-            {
-                if (index < _slots.Length)
-                {
-                    _slots[index].Load(item);
-                }
-                index++;
-            }
-
-            for (int i=index; i<_slots.Length; i++)
-            {
-                _slots[i].SetDefault();
-            }
         }
     }
 }

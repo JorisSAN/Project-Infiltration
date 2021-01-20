@@ -81,12 +81,12 @@ namespace itemshop.ui
 
 		public void Save(GameSnapshotBase snapshot)
 		{
-			if (_wantToSave)
-            {
+			//if (_wantToSave)
+            //{
 				GameSnapshot gameSnapshot = ((GameSnapshot)snapshot);
 				gameSnapshot.ItemShop = _snapshot;
 				gameSnapshot.PlayerItems = RetrieveItemsUnlocked();
-			}
+			//}
 		}
 	}
 }

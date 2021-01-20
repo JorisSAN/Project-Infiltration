@@ -116,9 +116,9 @@ namespace player
             PlayerDiscretion.RemoveDiscretion(discretion);
         }
 
-        public void SelectSkill()
+        public void SelectSkill(string skillUuid)
         {
-            PlayerSkillCollection.SelectSkill("1"); // Just an example for the moment
+            PlayerSkillCollection.SelectSkill(skillUuid);
 
             PlayerInventory.SelectSkill(PlayerSkillCollection.CurrentSkill);
         }
@@ -133,16 +133,6 @@ namespace player
             PlayerSkillCollection.Load(skills);
         }
 
-        public void LoadItems(List<SaveItem> items)
-        {
-            PlayerItemCollection.Load(items);
-
-            if (items != null)
-            {
-                Debug.Log(items.Count);
-            }
-        }
-
         public void SelectItem(string itemUuid)
         {
             PlayerItemCollection.SelectItem(itemUuid);
@@ -153,6 +143,11 @@ namespace player
         public void UseItem()
         {
             PlayerInventory.UseItem();
+        }
+
+        public void LoadItems(List<SaveItem> items)
+        {
+            PlayerItemCollection.Load(items);
         }
 
         public void SaveFromGameSaveManager()
