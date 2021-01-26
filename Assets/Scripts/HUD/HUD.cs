@@ -125,8 +125,11 @@ namespace hud
 
         public void UseSkill()
         {
-            _player.UseSkill();
-            _inventory.UseSkill();
+            if (_inventory.CanUseSkill())
+            {
+                _player.UseSkill();
+                _inventory.UseSkill();
+            }
         }
 
         public void SelectItem(string itemUuid)

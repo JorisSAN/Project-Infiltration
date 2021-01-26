@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 namespace hud
 {
-    public class HudSlot : MonoBehaviour
+    public abstract class HudSlot : MonoBehaviour
     {
-        [SerializeField] private Image _slotIcon = default;
+        [SerializeField] protected Image _slotIcon = default;
 
         public void Awake()
         {
@@ -17,7 +17,7 @@ namespace hud
             }
         }
 
-        public void LoadImage(Sprite icon)
+        public virtual void LoadImage(Sprite icon)
         {
             _slotIcon.sprite = icon;
             _slotIcon.gameObject.SetActive(true);

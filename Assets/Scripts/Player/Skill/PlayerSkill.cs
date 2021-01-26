@@ -15,6 +15,8 @@ namespace player.skill
 
         public Sprite Icon { get; }
 
+        public float Cooldown { get; }
+
         public PlayerSkill(string uuid, bool unlocked, bool usable)
         {
             Uuid = uuid;
@@ -22,12 +24,13 @@ namespace player.skill
             Usable = usable;
         }
 
-        public PlayerSkill(string uuid, bool unlocked, bool usable, string iconName)
+        public PlayerSkill(string uuid, bool unlocked, bool usable, string iconName, float cooldown)
         {
             Uuid = uuid;
             Unlocked = unlocked;
             Usable = usable;
             Icon = ConvertStringToSprite(iconName);
+            Cooldown = cooldown;
         }
 
         public Sprite ConvertStringToSprite(string spriteName)

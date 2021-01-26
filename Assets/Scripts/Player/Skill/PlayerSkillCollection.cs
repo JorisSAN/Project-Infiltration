@@ -73,7 +73,7 @@ namespace player.skill
 
                 foreach (SaveSkill skill in skillsSnapshot)
                 {
-                    _skills.Add(new PlayerSkill(skill._uuid, skill._unlocked, skill._usable, skill._icon));
+                    _skills.Add(new PlayerSkill(skill._uuid, skill._unlocked, skill._usable, skill._icon, skill._cooldown));
                 }
             }
         }

@@ -13,6 +13,7 @@ namespace skilltree
 		[SerializeField] private string _uuid = default;
 		[SerializeField] private bool _unlocked = default;
 		[SerializeField] private bool _usable = default;
+		[SerializeField] private float _cooldown = default;
 
 		[TextArea(3, 5)]
 		[SerializeField] private string _description = default;
@@ -58,6 +59,18 @@ namespace skilltree
 				_usable = value;
 			}
 		}
+
+		public float Cooldown
+        {
+			get
+            {
+				return _cooldown;
+            }
+			set
+            {
+				_cooldown = value;
+            }
+        }
 
 		public string Description
 		{

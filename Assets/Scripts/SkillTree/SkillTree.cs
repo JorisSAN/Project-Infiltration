@@ -314,7 +314,8 @@ namespace skilltree
 					_uuid = s.Uuid,
 					_unlocked = s.Unlocked,
 					_usable = s.Usable,
-					_icon = skillName
+					_icon = skillName,
+					_cooldown = s.Cooldown
 				});
 			}
 

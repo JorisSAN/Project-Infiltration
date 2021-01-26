@@ -10,5 +10,6 @@ namespace skilltree
         public bool _unlocked;
         public bool _usable;
         public string _icon;
+        public float _cooldown;
     }
 }
