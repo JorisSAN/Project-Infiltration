@@ -283,10 +283,12 @@ namespace itemshop
 				{
 					_uuid = i.Uuid,
 					_unlocked = i.Unlocked,
+					_consommable = i.Consommable,
 					_cost = i.Cost,
 					_icon = itemName,
-					_rarity = i.Rarity
-				});
+					_rarity = i.Rarity,
+					_stock = i.Stock
+				});;
 			}
 
 			ItemCollection[] collections = GetItemCollections();
@@ -294,12 +296,12 @@ namespace itemshop
 			foreach (ItemCollection col in collections)
 			{
 				Item i = col.LastBoughtItem;
-				if (col.Item.Unlocked)
+				if (col.Item.Unlocked || col.Item.Consommable)
                 {
 					i = col.Item;
                 }
 
-				if (i != null)
+				if (i != null && i.Stock > 0)
                 {
 					string itemName = "";
 					if (i.Icon != null)
@@ -312,9 +314,11 @@ namespace itemshop
 					{
 						_uuid = i.Uuid,
 						_unlocked = i.Unlocked,
+						_consommable = i.Consommable,
 						_cost = i.Cost,
 						_icon = itemName,
-						_rarity = i.Rarity
+						_rarity = i.Rarity,
+						_stock = i.Stock
 					});
 				}
 			}
@@ -360,6 +364,13 @@ namespace itemshop
 			foreach (SaveItem i in snapshot._items)
 			{
 				_itemLib[i._uuid].Unlocked = i._unlocked;
+				_itemLib[i._uuid].Stock = i._stock;
+			}
+
+			foreach (SaveItem it in snapshot._playerItems)
+			{
+				_itemLib[it._uuid].Unlocked = it._unlocked;
+				_itemLib[it._uuid].Stock = it._stock;
 			}
 
 			foreach (SaveItemCollection c in snapshot._collections)

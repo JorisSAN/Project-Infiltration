@@ -8,8 +8,10 @@ namespace itemshop.save
     {
         public string _uuid;
         public bool _unlocked;
+        public bool _consommable;
         public int _cost;
         public string _icon;
         public Rarity _rarity;
+        public int _stock;
     }
 }

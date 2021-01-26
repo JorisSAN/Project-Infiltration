@@ -33,7 +33,10 @@ namespace hud
         public void LoadSkill(PlayerSkill skill)
         {
             _skill = skill;
-            _cooldown = _skill.Cooldown;
+            if (_skill != null)
+            {
+                _cooldown = _skill.Cooldown;
+            }
         }
 
         public override void LoadImage(Sprite icon)
@@ -53,8 +56,11 @@ namespace hud
 
         public void StartCooldown()
         {
-            _slotIcon.fillAmount = 0;
-            IsCooldown = true;
+            if (_skill != null)
+            {
+                _slotIcon.fillAmount = 0;
+                IsCooldown = true;
+            }
         }
 
         public void StopCooldown()

@@ -18,6 +18,7 @@ namespace itemshop
 		[SerializeField] private string _id = default;
 		[SerializeField] private string _uuid = default;
 		[SerializeField] private bool _unlocked = default;
+		[SerializeField] private bool _consommable = default;
 
 		[TextArea(3, 5)]
 		[SerializeField] private string _description = default;
@@ -32,8 +33,8 @@ namespace itemshop
 		private ItemCollection _collection;
 		private ItemShop _shop;
 
-		// GETTERS
-		public string Id
+        // GETTERS
+        public string Id
 		{
 			get
 			{
@@ -50,6 +51,18 @@ namespace itemshop
 			set
 			{
 				_unlocked = value;
+			}
+		}
+
+		public bool Consommable
+		{
+			get
+			{
+				return _consommable;
+			}
+			set
+			{
+				_consommable = value;
 			}
 		}
 
@@ -93,7 +106,9 @@ namespace itemshop
 			}
 		}
 
-		public ItemCategory Category
+        public int Stock { get; set; } = 0;
+
+        public ItemCategory Category
 		{
 			get
 			{

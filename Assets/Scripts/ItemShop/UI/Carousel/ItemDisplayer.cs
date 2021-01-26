@@ -140,7 +140,7 @@ namespace intemshop.ui.carousel
         {
             SetStatus(NodeStatus.Locked);
 
-            if (Collection.Item.Unlocked)
+            if (Collection.Item.Unlocked && !Collection.Item.Consommable)
             {
                 SetStatus(NodeStatus.Unlocked); // Fully purchased
             }

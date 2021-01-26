@@ -29,7 +29,8 @@ namespace intemshop.ui
         [SerializeField] private RectTransform _sidebarContainer = default;
 		[SerializeField] private Text _sidebarRarity = default;
 		[SerializeField] private Text _sidebarTitle = default;
-        [SerializeField] private Text _sidebarBody = default;
+		[SerializeField] private Text _sidebarStock = default;
+		[SerializeField] private Text _sidebarBody = default;
         [SerializeField] private Text _sidebarRequirements = default;
         [SerializeField] private Text _sidebarPurchasedMessage = default;
         [SerializeField] private Button _sidebarPurchase = default;
@@ -133,6 +134,7 @@ namespace intemshop.ui
 					{
 						Uuid = item.Uuid,
 						Unlocked = item.Unlocked,
+						Consommable = item.Consommable,
 						Cost = item.Cost,
 						Rarity = item.Rarity,
 						SpriteName = item.Icon.name,
@@ -168,6 +170,12 @@ namespace intemshop.ui
 
 			_sidebarItemIcon.preserveAspect = true;
 
+			_sidebarStock.gameObject.SetActive(false);
+			if (itemCollection.Item.Consommable)
+            {
+				_sidebarStock.gameObject.SetActive(true);
+				_sidebarStock.text = "Stock : " + itemCollection.Item.Stock;
+			}
 
 			string requirements = itemCollection.Item.GetRequirements();
 			if (string.IsNullOrEmpty(requirements))
@@ -193,7 +201,7 @@ namespace intemshop.ui
 					UpdatePlayerMoney();
 				});
 			}
-			else if (status == NodeStatus.Unlocked)
+			else if (status == NodeStatus.Unlocked && !itemCollection.Item.Consommable)
 			{
 				_sidebarPurchasedMessage.gameObject.SetActive(true);
 				_sidebarPurchase.gameObject.SetActive(false);

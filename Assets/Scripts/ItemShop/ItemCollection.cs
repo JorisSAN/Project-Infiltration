@@ -175,7 +175,16 @@ namespace itemshop
 			itemShop.RemoveMoney(Item.Cost);
 
 			Item.Unlocked = true;
-			ItemIndex += 1;
+
+			if (Item.Consommable)
+            {
+				Item.Stock += 1;
+			}
+			else
+            {
+				Item.Stock = 1;
+				ItemIndex += 1;
+			}
 		}
 	}
 }

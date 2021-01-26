@@ -45,6 +45,8 @@ namespace itemshop.ui
 			return items;
 			*/
 
+			if (_snapshot == null) return null;
+
 			return _snapshot._playerItems;
         }
 
@@ -75,6 +77,11 @@ namespace itemshop.ui
 		{
 			GameSnapshot snapshot = (GameSnapshot)save;
 			_snapshot = snapshot.ItemShop;
+			if (_snapshot != null)
+            {
+				_snapshot._playerItems = snapshot.PlayerItems;
+			}
+			
 
 			//LoadSnapshot();
 		}

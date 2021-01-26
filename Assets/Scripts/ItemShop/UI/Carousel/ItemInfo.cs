@@ -12,6 +12,7 @@ namespace intemshop.ui.carousel
     {
         public string Uuid;
         public bool Unlocked;
+        public bool Consommable;
         public int Cost;
         public Rarity Rarity;
         public string SpriteName;

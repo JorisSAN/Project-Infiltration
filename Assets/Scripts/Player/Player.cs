@@ -142,7 +142,10 @@ namespace player
 
         public void UseItem()
         {
+            PlayerItemCollection.UpdateStockItem();
             PlayerInventory.UseItem();
+
+            //SaveFromGameSaveManager();
         }
 
         public void LoadItems(List<SaveItem> items)
@@ -171,6 +174,7 @@ namespace player
             Debug.Log("Saving data from the game save");
             GameSnapshot gameSnapshot = ((GameSnapshot)snapshot);
             gameSnapshot.PlayerHealth = this.PlayerHealth;
+            gameSnapshot.PlayerItems = this.PlayerItemCollection.GetSnapshot();
         }
     }
 }

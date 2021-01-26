@@ -48,6 +48,11 @@ namespace player.item
             return GetItem(itemUuid).Unlocked;
         }
 
+        public bool IsItemConsommable(string itemUuid)
+        {
+            return GetItem(itemUuid).Consommable;
+        }
+
         public PlayerItem GetItem(string itemUuid)
         {
             foreach (PlayerItem item in _items)
@@ -60,6 +65,47 @@ namespace player.item
             return null;
         }
 
+        public void UpdateStockItem()
+        {
+            if (CurrentItem.Consommable)
+            {
+                CurrentItem.Stock -= 1;
+                if (CurrentItem.Stock < 0)
+                {
+                    CurrentItem.Stock = 0;
+                    CurrentItem = null;
+                }
+            }
+        }
+
+        public List<SaveItem> GetSnapshot()
+        {
+            List<SaveItem> snapshot = new List<SaveItem>(_items.Count);
+
+            foreach (PlayerItem item in _items)
+            {
+                string itemName = "";
+                if (item.Icon != null)
+                {
+                    itemName = item.Icon.name;
+
+                }
+
+                snapshot.Add(new SaveItem
+                {
+                    _uuid = item.Uuid,
+                    _unlocked = item.Unlocked,
+                    _consommable = item.Consommable,
+                    _cost = item.Cost,
+                    _icon = itemName,
+                    _rarity = item.Rarity,
+                    _stock = item.Stock
+                });
+            }
+
+            return snapshot;
+        }
+
         public void Load(List<SaveItem> itemsSnapshot)
         {
             if (itemsSnapshot != null)
@@ -68,7 +114,7 @@ namespace player.item
 
                 foreach (SaveItem item in itemsSnapshot)
                 {
-                    _items.Add(new PlayerItem(item._uuid, item._unlocked, item._cost, item._icon, item._rarity));
+                    _items.Add(new PlayerItem(item._uuid, item._unlocked, item._consommable, item._cost, item._icon, item._rarity, item._stock));
                 }
             }
         }

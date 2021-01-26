@@ -38,15 +38,18 @@ namespace hud
         {
             if (item is null)
             {
+                _itemSlot.LoadItem(null);
                 _itemSlot.LoadImage(null);
                 return;
             }
+            _itemSlot.LoadItem(item);
             _itemSlot.LoadImage(item.Icon);
         }
 
         public void UseItem()
         {
             // Start timer for the next possible use
+            _itemSlot.Use();
         }
     }
 }

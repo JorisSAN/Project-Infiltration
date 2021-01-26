@@ -12,11 +12,15 @@ namespace player.item
 
         public bool Unlocked { get; }
 
+        public bool Consommable { get; }
+
         public int Cost { get; }
 
         public Rarity Rarity { get; }
 
         public Sprite Icon { get; }
+
+        public int Stock { get; set; }
 
         public PlayerItem(string uuid, bool unlocked)
         {
@@ -31,13 +35,15 @@ namespace player.item
             Icon = ConvertStringToSprite(iconName);
         }
 
-        public PlayerItem(string uuid, bool unlocked, int cost, string iconName, Rarity rarity)
+        public PlayerItem(string uuid, bool unlocked, bool consommable, int cost, string iconName, Rarity rarity, int stock)
         {
             Uuid = uuid;
             Unlocked = unlocked;
+            Consommable = consommable;
             Cost = cost;
             Icon = ConvertStringToSprite(iconName);
             Rarity = rarity;
+            Stock = stock;
         }
 
         public Sprite ConvertStringToSprite(string spriteName)
