@@ -287,6 +287,7 @@ namespace itemshop
 					_cost = i.Cost,
 					_icon = itemName,
 					_rarity = i.Rarity,
+					_cooldown = i.Cooldown,
 					_stock = i.Stock
 				});;
 			}
@@ -318,6 +319,7 @@ namespace itemshop
 						_cost = i.Cost,
 						_icon = itemName,
 						_rarity = i.Rarity,
+						_cooldown = i.Cooldown,
 						_stock = i.Stock
 					});
 				}

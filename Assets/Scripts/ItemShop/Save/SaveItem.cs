@@ -12,6 +12,7 @@ namespace itemshop.save
         public int _cost;
         public string _icon;
         public Rarity _rarity;
+        public float _cooldown;
         public int _stock;
     }
 }

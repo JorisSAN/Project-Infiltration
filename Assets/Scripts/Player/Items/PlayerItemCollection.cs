@@ -99,6 +99,7 @@ namespace player.item
                     _cost = item.Cost,
                     _icon = itemName,
                     _rarity = item.Rarity,
+                    _cooldown = item.Cooldown,
                     _stock = item.Stock
                 });
             }
@@ -114,7 +115,7 @@ namespace player.item
 
                 foreach (SaveItem item in itemsSnapshot)
                 {
-                    _items.Add(new PlayerItem(item._uuid, item._unlocked, item._consommable, item._cost, item._icon, item._rarity, item._stock));
+                    _items.Add(new PlayerItem(item._uuid, item._unlocked, item._consommable, item._cost, item._icon, item._rarity, item._cooldown, item._stock));
                 }
             }
         }

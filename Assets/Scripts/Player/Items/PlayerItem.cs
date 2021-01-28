@@ -18,6 +18,8 @@ namespace player.item
 
         public Rarity Rarity { get; }
 
+        public float Cooldown { get; }
+
         public Sprite Icon { get; }
 
         public int Stock { get; set; }
@@ -35,7 +37,7 @@ namespace player.item
             Icon = ConvertStringToSprite(iconName);
         }
 
-        public PlayerItem(string uuid, bool unlocked, bool consommable, int cost, string iconName, Rarity rarity, int stock)
+        public PlayerItem(string uuid, bool unlocked, bool consommable, int cost, string iconName, Rarity rarity, float cooldown, int stock)
         {
             Uuid = uuid;
             Unlocked = unlocked;
@@ -43,6 +45,7 @@ namespace player.item
             Cost = cost;
             Icon = ConvertStringToSprite(iconName);
             Rarity = rarity;
+            Cooldown = cooldown;
             Stock = stock;
         }
 

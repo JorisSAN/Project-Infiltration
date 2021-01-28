@@ -51,5 +51,10 @@ namespace hud
             // Start timer for the next possible use
             _itemSlot.Use();
         }
+
+        public bool CanUseItem()
+        {
+            return !_itemSlot.IsCooldown;
+        }
     }
 }

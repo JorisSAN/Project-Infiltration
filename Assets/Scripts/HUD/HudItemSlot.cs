@@ -35,7 +35,7 @@ namespace hud
             _item = item;
             if (_item != null)
             {
-                //_cooldown = _item.Cooldown;
+                _cooldown = _item.Cooldown;
                 Debug.Log("Item is consommable ? " + _item.Consommable);
                 Debug.Log("Item stock = " + _item.Stock);
             }
@@ -82,8 +82,11 @@ namespace hud
 
         public void StartCooldown()
         {
-            _slotIcon.fillAmount = 0;
-            IsCooldown = true;
+            if (_item != null)
+            {
+                _slotIcon.fillAmount = 0;
+                IsCooldown = true;
+            }
         }
 
         public void StopCooldown()

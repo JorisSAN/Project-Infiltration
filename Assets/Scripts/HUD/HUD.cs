@@ -140,9 +140,12 @@ namespace hud
 
         public void UseItem()
         {
-            _player.UseItem();
-            _inventory.UseItem();
-            _itemWheel.Repaint();
+            if (_inventory.CanUseItem())
+            {
+                _player.UseItem();
+                _inventory.UseItem();
+                _itemWheel.Repaint();
+            }
         }
     }
 }

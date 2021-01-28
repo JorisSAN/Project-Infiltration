@@ -26,6 +26,7 @@ namespace itemshop
 		[SerializeField] private int _levelRequirement = default;
 		[SerializeField] private int _cost = default;
 		[SerializeField] private Rarity _rarity = default;
+		[SerializeField] private float _cooldown = default;
 
 		[SerializeField] private Sprite _icon = default;
 
@@ -95,6 +96,14 @@ namespace itemshop
 			get
 			{
 				return _rarity;
+			}
+		}
+
+		public float Cooldown
+		{
+			get
+			{
+				return _cooldown;
 			}
 		}
 
