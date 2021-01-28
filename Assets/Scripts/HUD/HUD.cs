@@ -142,6 +142,7 @@ namespace hud
         {
             _player.UseItem();
             _inventory.UseItem();
+            _itemWheel.Repaint();
         }
     }
 }

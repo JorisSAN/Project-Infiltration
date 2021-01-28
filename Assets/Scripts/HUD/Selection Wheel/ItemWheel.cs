@@ -7,6 +7,8 @@ namespace hud.selectionwheel
 {
     public class ItemWheel : SelectionWheel
     {
+        private List<PlayerItem> _items;
+
         public new ItemWheelSlot CurrentSlot
         {
             get
@@ -33,6 +35,7 @@ namespace hud.selectionwheel
 
         public void LoadWheel(List<PlayerItem> items)
         {
+            _items = items;
             int index = 0;
             foreach (PlayerItem item in items)
             {
@@ -54,6 +57,24 @@ namespace hud.selectionwheel
             if (CurrentSlot != null && CurrentSlot.PlayerItem != null)
             {
                 _hud.SelectItem(CurrentSlot.PlayerItem.Uuid);
+            }
+        }
+
+        public void Repaint()
+        {
+            int index = 0;
+            foreach (PlayerItem item in _items)
+            {
+                if (index < _slots.Length)
+                {
+                    ((ItemWheelSlot)_slots[index]).Load(item);
+                }
+                index++;
+            }
+
+            for (int i = index; i < _slots.Length; i++)
+            {
+                ((ItemWheelSlot)_slots[i]).SetDefault();
             }
         }
     }
