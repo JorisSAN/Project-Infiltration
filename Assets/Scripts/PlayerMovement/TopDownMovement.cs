@@ -19,6 +19,10 @@ public class TopDownMovement : MonoBehaviour
     bool Q = false;
     bool D = false;
     bool leftClick = false;
+    bool roll = false;
+
+    float timer = 0.7857143f;
+    float timeleft = 0;
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -125,6 +129,19 @@ public class TopDownMovement : MonoBehaviour
         }
         else {
             horizontal = -1;
+        }
+
+        if (roll) {
+            roll = false;
+        }
+        if(Input.GetKeyDown(KeyCode.Space)) {
+            roll = true;
+            timeleft = timer;
+        }
+
+        if(timeleft > 0) {
+            timeleft -= Time.deltaTime;
+            realspeed = speed * 2;
         }
 
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;

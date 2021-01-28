@@ -8,6 +8,7 @@ public class Transition : MonoBehaviour
     bool bcrouch = false;
     bool brun = false;
     bool bwalk = false;
+    bool broll = false;
 
     bool up = false, down = false, left = false, right = false;
 
@@ -69,8 +70,16 @@ public class Transition : MonoBehaviour
             bwalk = false;
         }
 
+        if (broll) {
+            broll = false;
+        }
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            broll = true;
+        }
+
         animation.SetBool("crouch", bcrouch);
         animation.SetBool("run", brun);
         animation.SetBool("walk", bwalk);
+        animation.SetBool("roll", broll);
     }
 }
